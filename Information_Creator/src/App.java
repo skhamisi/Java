@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Information_Creator {
+public class App {
     public static void main(String[] args) throws Exception 
     {
         try (Scanner input = new Scanner(System.in)) 
