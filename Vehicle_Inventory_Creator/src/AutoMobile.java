@@ -13,9 +13,9 @@ public class AutoMobile {
     private int mileage;
     private int index = 300;
 
-
+    // AutoMobile Object Constructor
     public AutoMobile(String make, String model, String color, int year, int mileage, int index) {
-        super();
+        //super();
         this.make = make;
         this.model = model;
         this.color = color;
@@ -136,8 +136,8 @@ class Vehicle {
             PressEnter();
         }
         else{
-            System.out.println(RED + "STATUS: Failed" + RESET);
-            System.out.println(YELLOW + "*Vehicle does not exist" + RESET);
+            System.out.println(RED + "\nSTATUS: Failed");
+            System.out.println("*Vehicle does not exist" + RESET);
             PressEnter();
         }
 
@@ -185,11 +185,11 @@ class Vehicle {
         }
 
         if (find){
-            System.out.println(GREEN + "STATUS: Succesful" + RESET);
+            System.out.println(GREEN + "\nSTATUS: Succesful" + RESET);
             PressEnter();
         }
         else {
-            System.out.println(RED + "STATUS: Failed");
+            System.out.println(RED + "\nSTATUS: Failed");
             System.out.println("*Vehicle does not exist" + RESET);
             PressEnter();
         }
@@ -288,8 +288,8 @@ class Vehicle {
         PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
         String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
 
-        for (AutoMobile a : vehicleList) {
-            text += a.getIndex() + " " + a.getMake() + " " + a.getModel() + " " + a.getColor()+ " " + a.getYear() + " " + a.getMileage() + " mi." + "\n";
+        for (AutoMobile auto : vehicleList) {
+            text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
         }
 
         pw.write(text);
