@@ -112,7 +112,7 @@ class Vehicle {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
         Scanner scan = new Scanner(System.in);
         System.out.println("      *REMOVE VEHICLE*" + RESET);
-        System.out.println("----------------------------");
+        System.out.println("---------------------------");
         System.out.print("Enter Vehicle make: ");
         String make = scan.nextLine();
         System.out.print("Enter Vehicle model: ");
