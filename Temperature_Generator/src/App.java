@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        
+        ClearScreen();
         String[] weekDay = {"Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
         Integer[] temp = {22, 77, 80, 72, 61, 44, 32};
@@ -50,5 +50,11 @@ public class App {
             default:
             System.out.println("Invalid Choice");
         }
+    }
+
+    public static void ClearScreen() 
+    {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
 }
