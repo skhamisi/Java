@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
@@ -15,7 +14,6 @@ public class AutoMobile {
 
     // AutoMobile Object Constructor
     public AutoMobile(String make, String model, String color, int year, int mileage, int index) {
-        //super();
         this.make = make;
         this.model = model;
         this.color = color;
@@ -72,6 +70,12 @@ public class AutoMobile {
         this.index = index;
     }
 
+    // Overrides toString() to return values of arrayList
+    @Override
+    public String toString() {
+       return this.getIndex() + "   " + this.getMake() + "  " + this.getModel() + "  " + this.getColor()+ "  " + this.getYear() + "  " + this.getMileage() + " mi.";
+    }
+
 }
 
 class Vehicle {
@@ -81,20 +85,20 @@ class Vehicle {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
-    public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
-    //Prints to location with proper header, but returns package and no vehicles
+    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
+    static Scanner scan = new Scanner(System.in);
 
     public static void addVehicle() {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
-        Scanner scan = new Scanner(System.in);
         System.out.println("      *Add Vehicle*      " + RESET);
         System.out.println("-------------------------");
         System.out.print("Enter Vehicle make: ");
-        String make = scan.nextLine();
+        String make = scan.next();
         System.out.print("Enter Vehicle model: ");
-        String model = scan.nextLine();
+        String model = scan.next();
         System.out.print("Enter Vehicle color: ");
-        String color = scan.nextLine();
+        String color = scan.next();
         System.out.print("Enter Vehicle year: ");
         int year = scan.nextInt();
         System.out.print("Enter Vehicle mileage: ");
@@ -110,7 +114,6 @@ class Vehicle {
 
     public static void removeVehicle() {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
-        Scanner scan = new Scanner(System.in);
         System.out.println("      *REMOVE VEHICLE*" + RESET);
         System.out.println("---------------------------");
         System.out.print("Enter Vehicle make: ");
@@ -124,7 +127,7 @@ class Vehicle {
         while(iterator.hasNext()){
             AutoMobile removeAuto = iterator.next();
             if (removeAuto.getMake().equalsIgnoreCase(make) && removeAuto.getModel().equalsIgnoreCase(model)
-            && removeAuto.getIndex() == index) { // Line Showing Error
+            && removeAuto.getIndex() == index) {
                 iterator.remove();
                 find = true;
                 break;
@@ -145,7 +148,6 @@ class Vehicle {
 
     public static void updateVehicle() {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
-        Scanner scan = new Scanner(System.in);
         System.out.println("      UPDATE VEHICLE      " + RESET);
         System.out.println("-------------------------");
         System.out.print("Enter the make of Automobile: ");
@@ -155,23 +157,27 @@ class Vehicle {
         System.out.print("Enter the Vehicle Index Number: ");
         int index = scan.nextInt();
 
-        ListIterator<AutoMobile> iterator =vehicleList.listIterator();
+        ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean find = false;
-        while(iterator.hasNext()){
+
+        while(iterator.hasNext()) {
+
             AutoMobile existingAuto = iterator.next();
+
             if (existingAuto.getMake().equalsIgnoreCase(make) && existingAuto.getModel().equalsIgnoreCase(model)
             && existingAuto.getIndex() == index) {
-                System.out.println(GREEN + "\n*Vehicle found*" + RESET);
+                System.out.println(GREEN + "\n*Vehicle Found*" + RESET);
                 System.out.println("---------------");
-                System.out.print("Enter the new make of Automobile: ");
-                make = scan.nextLine();
-                System.out.print("Enter the new model of Automobile: ");
-                model = scan.nextLine();
-                System.out.print("Enter the new color of Automobile: ");
-                String color = scan.nextLine();
-                System.out.print("Enter the new year of Automobile: ");
+                System.out.println("Please enter updated values");
+                System.out.print("Make: ");
+                make = scan.next();
+                System.out.print("Model: ");
+                model = scan.next();
+                System.out.print("Color: ");
+                String color = scan.next();
+                System.out.print("Year: ");
                 int year = scan.nextInt();
-                System.out.print("Enter the new mileage of Automobile: ");
+                System.out.print("Mileage : ");
                 int mileage = scan.nextInt();
                 existingAuto.setMake(make);
                 existingAuto.setModel(model);
@@ -196,19 +202,21 @@ class Vehicle {
     }
 
     public static void printfile() {
+
         BufferedWriter bw = null;
         FileWriter fw = null;
-        try {
 
+        try {
             fw = new FileWriter(FILENAME);
             bw = new BufferedWriter(fw);
             String content = "ID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
             bw.write(content);
-            Iterator<AutoMobile> itr = vehicleList.iterator();
+            
+            for (AutoMobile auto : vehicleList) {
 
-            while(itr.hasNext()){
-                bw.write(itr.next().toString() + "\n");
+                bw.write(auto.toString() + "\n");
             }
+            bw.close();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -232,15 +240,16 @@ class Vehicle {
     public static void PressEnter()
     { 
         System.out.println(YELLOW + "\nPress [ENTER] to continue" + RESET);
-        Scanner scan = new Scanner(System.in);
         scan.nextLine();
     }
+
     public static void main(String[] args) throws FileNotFoundException {
 
         do {
             
             clearScreen();
             System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n" + RESET);
+            
             System.out.println("INVENTORY OPTIONS");
             System.out.println("=======================*");
             System.out.println("1. Add Vehicle         |");
@@ -250,7 +259,6 @@ class Vehicle {
             System.out.println("5. Exit                |");
             System.out.println("=======================*\n");
 
-            Scanner scan = new Scanner(System.in);
             System.out.print("\nPlease enter your choice: ");
             int userChoice = scan.nextInt();
 
@@ -296,7 +304,7 @@ class Vehicle {
         pw.flush();
         pw.close();
 
-        System.out.println(GREEN + "OUTPUT STATUS: Success" + RESET);
+        System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
         System.out.println();
         System.out.println(text);
     }
