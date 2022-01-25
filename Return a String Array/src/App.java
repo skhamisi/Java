@@ -13,6 +13,8 @@ public class App {
         for (String i : values) {
             System.out.println(i);
         }
+
+        scan.close();
         
         } catch (Exception e) {
             System.out.println(e);
