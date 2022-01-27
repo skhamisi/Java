@@ -5,7 +5,7 @@ public class App {
 
         try {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter 3 values seperated by a comma.");
+        System.out.print("Please enter 3 values seperated by a comma: ");
         String input = scan.nextLine();
 
         String values[] = returnArray(input);
@@ -23,7 +23,7 @@ public class App {
 
     public static String[] returnArray(String input) {
 
-        String[] userValues = input.split(",");
+        String[] userValues = input.split(", ");
         return userValues;
     }
 }
