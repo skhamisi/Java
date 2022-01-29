@@ -93,15 +93,15 @@ class Vehicle {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
         System.out.println("      *Add Vehicle*      " + RESET);
         System.out.println("-------------------------");
-        System.out.print("Enter Vehicle make: ");
+        System.out.print("Enter Vehicle Make: ");
         String make = scan.next();
-        System.out.print("Enter Vehicle model: ");
+        System.out.print("Enter Vehicle Model: ");
         String model = scan.next();
-        System.out.print("Enter Vehicle color: ");
+        System.out.print("Enter Vehicle Color: ");
         String color = scan.next();
-        System.out.print("Enter Vehicle year: ");
+        System.out.print("Enter Vehicle Year: ");
         int year = scan.nextInt();
-        System.out.print("Enter Vehicle mileage: ");
+        System.out.print("Enter Vehicle Mileage: ");
         int mileage = scan.nextInt();
         System.out.print("Enter the Vehicle Index Number: ");
         int index = scan.nextInt();
@@ -116,18 +116,18 @@ class Vehicle {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
         System.out.println("      *REMOVE VEHICLE*" + RESET);
         System.out.println("---------------------------");
-        System.out.print("Enter Vehicle make: ");
-        String make = scan.nextLine();
-        System.out.print("Enter Vehicle model: ");
-        String model = scan.nextLine();
+        System.out.print("Enter Vehicle Make: ");
+        String make = scan.next();
+        System.out.print("Enter Vehicle Model: ");
+        String model = scan.next();
         System.out.print("Enter the Vehicle Index Number: ");
         int index = scan.nextInt();
-        ListIterator<AutoMobile> iterator =vehicleList.listIterator();
+        ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean find = false;
         while(iterator.hasNext()){
-            AutoMobile removeAuto = iterator.next();
-            if (removeAuto.getMake().equalsIgnoreCase(make) && removeAuto.getModel().equalsIgnoreCase(model)
-            && removeAuto.getIndex() == index) {
+            AutoMobile existingAuto = iterator.next();
+            if (existingAuto.getMake().equalsIgnoreCase(make) && existingAuto.getModel().equalsIgnoreCase(model)
+            && existingAuto.getIndex() == index) {
                 iterator.remove();
                 find = true;
                 break;
@@ -150,10 +150,10 @@ class Vehicle {
         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
         System.out.println("      UPDATE VEHICLE      " + RESET);
         System.out.println("-------------------------");
-        System.out.print("Enter the make of Automobile: ");
-        String make = scan.nextLine();
-        System.out.print("Enter the model of Automobile: ");
-        String model = scan.nextLine();
+        System.out.print("Enter the Make of Automobile: ");
+        String make = scan.next();
+        System.out.print("Enter the Model of Automobile: ");
+        String model = scan.next();
         System.out.print("Enter the Vehicle Index Number: ");
         int index = scan.nextInt();
 
@@ -240,6 +240,7 @@ class Vehicle {
     public static void PressEnter()
     { 
         System.out.println(YELLOW + "\nPress [ENTER] to continue" + RESET);
+        scan.nextLine();
         scan.nextLine();
     }
 
