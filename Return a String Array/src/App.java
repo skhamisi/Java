@@ -11,7 +11,7 @@ public class App {
         String values[] = returnArray(input);
 
         for (String i : values) {
-            System.out.println(i);
+            System.out.println("\n" + i);
         }
 
         scan.close();
