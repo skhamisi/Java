@@ -85,8 +85,8 @@ class Vehicle {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
-    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
-    public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    //public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
     static Scanner scan = new Scanner(System.in);
 
     public static void addVehicle() {
