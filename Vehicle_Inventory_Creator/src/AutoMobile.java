@@ -85,8 +85,9 @@ class Vehicle {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
-    public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
     //public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\skhamisi\\Documents\\AUTO_INVENTORY.txt";
     static Scanner scan = new Scanner(System.in);
 
     public static void addVehicle() {
@@ -209,14 +210,24 @@ class Vehicle {
         try {
             fw = new FileWriter(FILENAME);
             bw = new BufferedWriter(fw);
-            String content = "ID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
-            bw.write(content);
+            String fileContent = "ID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
+            bw.write(fileContent);
             
             for (AutoMobile auto : vehicleList) {
 
                 bw.write(auto.toString() + "\n");
             }
             bw.close();
+
+            System.out.println("\nVEHICLE INVENTORY");
+            System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
+    
+            for (AutoMobile auto : vehicleList) {
+                System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
+            }
+    
+            System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
+            PressEnter();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -289,10 +300,6 @@ class Vehicle {
                     System.out.println(RED + "\nInvalid choice" + RESET);
                     PressEnter();
             }
-
-            if(userChoice == 4)
-                break;
-
         } while (true);
 
         // PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
@@ -310,13 +317,13 @@ class Vehicle {
         // System.out.println();
         // System.out.println(text);
 
-        System.out.println("VEHICLE INVENTORY");
-        System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
+        // System.out.println("VEHICLE INVENTORY");
+        // System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
 
-        for (AutoMobile auto : vehicleList) {
-            System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
-        }
+        // for (AutoMobile auto : vehicleList) {
+        //     System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
+        // }
 
-        System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
+        // System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
     }
 }
