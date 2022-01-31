@@ -260,7 +260,7 @@ class Vehicle {
             System.out.println("5. Exit                |");
             System.out.println("=======================*\n");
 
-            System.out.print("\nPlease enter your choice: ");
+            System.out.print("\nENTER SELECTION: ");
             int userChoice = scan.nextInt();
 
             switch (userChoice) {
@@ -281,7 +281,8 @@ class Vehicle {
                     printfile();
                     break;
                 case 5:
-                System.out.println("\nThank you for using the vehicle management system. Goodbye.");
+                System.out.println("\nSYSTEM SHUTTING DOWN...");
+                System.out.println("\nGOODBYE.");
                 System.exit(0);
                 break;
                 default:
@@ -294,19 +295,28 @@ class Vehicle {
 
         } while (true);
 
-        PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
-        String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
+        // PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
+        // String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
+
+        // for (AutoMobile auto : vehicleList) {
+        //     text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
+        // }
+
+        // pw.write(text);
+        // pw.flush();
+        // pw.close();
+
+        // System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
+        // System.out.println();
+        // System.out.println(text);
+
+        System.out.println("VEHICLE INVENTORY");
+        System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
 
         for (AutoMobile auto : vehicleList) {
-            text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
+            System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
         }
 
-        pw.write(text);
-        pw.flush();
-        pw.close();
-
         System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
-        System.out.println();
-        System.out.println(text);
     }
 }
