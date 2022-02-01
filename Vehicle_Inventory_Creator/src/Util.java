@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.Scanner;
 
 public class Util {
@@ -6,6 +7,7 @@ public class Util {
     final static String RED = "\u001B[31m";
     final static String GREEN = "\u001B[32m";
     final static String YELLOW = "\u001B[33m";
+    final static Date date = new Date();
     static final Scanner scan = new Scanner(System.in);
 
     public static void clearScreen() {  
