@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ListIterator;
 import java.util.Scanner;
 
@@ -85,8 +86,10 @@ class Vehicle {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
-    public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    public static Date date = new Date();
+    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
     //public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\skhamisi\\Documents\\AUTO_INVENTORY.txt";
     static Scanner scan = new Scanner(System.in);
 
     public static void addVehicle() {
@@ -158,7 +161,7 @@ class Vehicle {
         int index = scan.nextInt();
 
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
-        boolean find = false;
+        boolean found = false;
 
         while(iterator.hasNext()) {
 
@@ -185,12 +188,12 @@ class Vehicle {
                 existingAuto.setYear(year);
                 existingAuto.setMileage(mileage);
                 existingAuto.setIndex(index);
-                find = true;
+                found = true;
                 break;
             }
         }
 
-        if (find){
+        if (found){
             System.out.println(GREEN + "\nSTATUS: Succesful" + RESET);
             PressEnter();
         }
@@ -209,14 +212,24 @@ class Vehicle {
         try {
             fw = new FileWriter(FILENAME);
             bw = new BufferedWriter(fw);
-            String content = "ID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
-            bw.write(content);
+            String fileContent = "File Date: " + date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
+            bw.write(fileContent);
             
             for (AutoMobile auto : vehicleList) {
 
                 bw.write(auto.toString() + "\n");
             }
             bw.close();
+
+            System.out.println("\nVEHICLE INVENTORY");
+            System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
+    
+            for (AutoMobile auto : vehicleList) {
+                System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
+            }
+    
+            System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
+            PressEnter();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -247,7 +260,7 @@ class Vehicle {
     // public static void main(String[] args) throws FileNotFoundException {
 
     //     do {
-            
+    
     //         clearScreen();
     //         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n" + RESET);
             
