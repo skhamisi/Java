@@ -80,7 +80,7 @@ public class AutoMobile {
 
 class Vehicle {
 
-    public static final String RESET = "\u001B[0m";
+    public static String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
@@ -244,69 +244,69 @@ class Vehicle {
         scan.nextLine();
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    // public static void main(String[] args) throws FileNotFoundException {
 
-        do {
+    //     do {
             
-            clearScreen();
-            System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n" + RESET);
+    //         clearScreen();
+    //         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n" + RESET);
             
-            System.out.println("INVENTORY OPTIONS");
-            System.out.println("=======================*");
-            System.out.println("1. Add Vehicle         |");
-            System.out.println("2. Remove Vehicle      |");
-            System.out.println("3. Update Vehicle      |");
-            System.out.println("4. Print Vehicle List  |");
-            System.out.println("5. Exit                |");
-            System.out.println("=======================*\n");
+    //         System.out.println("INVENTORY OPTIONS");
+    //         System.out.println("=======================*");
+    //         System.out.println("1. Add Vehicle         |");
+    //         System.out.println("2. Remove Vehicle      |");
+    //         System.out.println("3. Update Vehicle      |");
+    //         System.out.println("4. Print Vehicle List  |");
+    //         System.out.println("5. Exit                |");
+    //         System.out.println("=======================*\n");
 
-            System.out.print("\nPlease enter your choice: ");
-            int userChoice = scan.nextInt();
+    //         System.out.print("\nPlease enter your choice: ");
+    //         int userChoice = scan.nextInt();
 
-            switch (userChoice) {
-                case 1:
-                    clearScreen();
-                    addVehicle();
-                    break;
-                case 2:
-                    clearScreen();
-                    removeVehicle();
-                    break;
-                case 3:
-                    clearScreen();
-                    updateVehicle();
-                    break;
-                case 4:
-                    clearScreen();
-                    printfile();
-                    break;
-                case 5:
-                System.out.println("\nThank you for using the vehicle management system. Goodbye.");
-                System.exit(0);
-                break;
-                default:
-                    System.out.println(RED + "\nInvalid choice" + RESET);
-                    PressEnter();
-            }
+    //         switch (userChoice) {
+    //             case 1:
+    //                 clearScreen();
+    //                 addVehicle();
+    //                 break;
+    //             case 2:
+    //                 clearScreen();
+    //                 removeVehicle();
+    //                 break;
+    //             case 3:
+    //                 clearScreen();
+    //                 updateVehicle();
+    //                 break;
+    //             case 4:
+    //                 clearScreen();
+    //                 printfile();
+    //                 break;
+    //             case 5:
+    //             System.out.println("\nThank you for using the vehicle management system. Goodbye.");
+    //             System.exit(0);
+    //             break;
+    //             default:
+    //                 System.out.println(RED + "\nInvalid choice" + RESET);
+    //                 PressEnter();
+    //         }
 
-            if(userChoice == 4)
-                break;
+    //         if(userChoice == 4)
+    //             break;
 
-        } while (true);
+    //     } while (true);
 
-        PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
-        String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
+    //     PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
+    //     String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
 
-        for (AutoMobile auto : vehicleList) {
-            text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
-        }
+    //     for (AutoMobile auto : vehicleList) {
+    //         text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
+    //     }
 
-        pw.write(text);
-        pw.flush();
-        pw.close();
+    //     pw.write(text);
+    //     pw.flush();
+    //     pw.close();
 
-        System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
-        System.out.println();
-        System.out.println(text);
-    }
+    //     System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
+    //     System.out.println();
+    //     System.out.println(text);
+    //}
 }
