@@ -1,20 +1,12 @@
-import java.io.FileNotFoundException;
-import java.util.Date;
-import java.util.Scanner;
+import java.io.*;
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException {
 
-        final String RESET = "\u001B[0m";
-        final String RED = "\u001B[31m";
-        final String YELLOW = "\u001B[33m";
-        final Scanner scan = new Scanner(System.in);
-        final Date date = new Date();
-
         do {
 
             Util.clearScreen();
-            System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\nCURRENT TIME: " + date + "\n\n" + RESET);
+            System.out.println(Util.YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\nCURRENT TIME: " + Util.date + "\n\n" + Util.RESET);
             
             System.out.println("INVENTORY OPTIONS");
             System.out.println("=======================*");
@@ -26,7 +18,7 @@ public class App {
             System.out.println("=======================*\n");
 
             System.out.print("\nENTER CHOICE: ");
-            int userChoice = scan.nextInt();
+            int userChoice = Util.scan.nextInt();
 
             switch (userChoice) {
                 case 1:
@@ -47,11 +39,11 @@ public class App {
                     break;
                 case 5:
                 System.out.println("\nThank you for using the vehicle management system. Goodbye.\n");
-                scan.close();
+                Util.scan.close();
                 System.exit(0);
                 break;
                 default:
-                    System.out.println(RED + "\nInvalid choice" + RESET);
+                    System.out.println(Util.RED + "\nInvalid choice" + Util.RESET);
                     Util.PressEnter();
             }
 
