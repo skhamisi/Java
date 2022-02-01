@@ -19,5 +19,6 @@ public class Util {
     { 
         System.out.println(YELLOW + "\nPress [ENTER] to continue" + RESET);
         scan.nextLine();
+        scan.nextLine();
     }
 }
