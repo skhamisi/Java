@@ -5,8 +5,7 @@ public class App {
 
         do {
 
-            Util.clearScreen();
-            System.out.println(Util.YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\nCURRENT TIME: " + Util.date + "\n\n" + Util.RESET);
+            Util.PrintHeader();
             
             System.out.println("INVENTORY OPTIONS");
             System.out.println("=======================*");
@@ -22,19 +21,15 @@ public class App {
 
             switch (userChoice) {
                 case 1:
-                    Util.clearScreen();
                     Vehicle.addVehicle();
                     break;
                 case 2:
-                    Util.clearScreen();
                     Vehicle.removeVehicle();
                     break;
                 case 3:
-                    Util.clearScreen();
                     Vehicle.updateVehicle();
                     break;
                 case 4:
-                    Util.clearScreen();
                     Vehicle.printfile();
                     break;
                 case 5:

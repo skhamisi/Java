@@ -5,11 +5,12 @@ import java.util.ListIterator;
 public class Vehicle {
     
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
-    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    // public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
     public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
 
+    // Adds vehicle to inventory list
     public static void addVehicle() {
-        System.out.println(Util.YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
+        Util.PrintHeader();
         System.out.println("      *Add Vehicle*      " + Util.RESET);
         System.out.println("-------------------------");
         System.out.print("Enter Vehicle Make: ");
@@ -31,8 +32,9 @@ public class Vehicle {
         Util.PressEnter();
     }
 
+    // Removes vehicle from inventory list
     public static void removeVehicle() {
-        System.out.println(Util.YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
+        Util.PrintHeader();
         System.out.println("      *REMOVE VEHICLE*" + Util.RESET);
         System.out.println("---------------------------");
         System.out.print("Enter Vehicle Make: ");
@@ -65,8 +67,9 @@ public class Vehicle {
 
     }
 
+    // Finds vehicle in inventory list and allows user to update vehicle attributes
     public static void updateVehicle() {
-        System.out.println(Util.YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n");
+        Util.PrintHeader();
         System.out.println("      UPDATE VEHICLE      " + Util.RESET);
         System.out.println("-------------------------");
         System.out.print("Enter the Make of Automobile: ");
@@ -120,6 +123,7 @@ public class Vehicle {
         }
     }
 
+    // Prints .txt file with all current vehicles in inventory list
     public static void printfile() {
 
         BufferedWriter bw = null;
@@ -136,6 +140,8 @@ public class Vehicle {
                 bw.write(auto.toString() + "\n");
             }
             bw.close();
+
+            Util.PrintHeader();
 
             System.out.println(Util.YELLOW + "FILE OUTPUT:\n" + Util.RESET);
             System.out.println("\nVEHICLE INVENTORY");

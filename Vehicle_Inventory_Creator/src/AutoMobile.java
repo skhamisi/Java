@@ -17,7 +17,7 @@ public class AutoMobile {
         this.mileage = mileage;
         this.index = index;
     }
-
+    
     public String getMake() {
         return make;
     }
