@@ -26,7 +26,6 @@ public class AutoMobile {
     public String getMake() {
         return make;
     }
-
     public void setMake(String make) {
         this.make = make;
     }
@@ -34,7 +33,6 @@ public class AutoMobile {
     public String getModel() {
         return model;
     }
-
     public void setModel(String model) {
         this.model = model;
     }
@@ -42,7 +40,6 @@ public class AutoMobile {
     public String getColor() {
         return color;
     }
-
     public void setColor(String color) {
         this.color = color;
     }
@@ -50,7 +47,6 @@ public class AutoMobile {
     public int getYear() {
         return year;
     }
-
     public void setYear(int year) {
         this.year = year;
     }
@@ -58,7 +54,6 @@ public class AutoMobile {
     public int getMileage() {
         return mileage;
     }
-
     public void setMileage(int mileage) {
         this.mileage = mileage;
     }
@@ -66,7 +61,6 @@ public class AutoMobile {
     public int getIndex() {
         return index;
     }
-
     public void setIndex(int index) {
         this.index = index;
     }
@@ -88,8 +82,7 @@ class Vehicle {
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
     public static Date date = new Date();
     //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
-    //public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
-    public static final String FILENAME = "C:\\Users\\skhamisi\\Documents\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
     static Scanner scan = new Scanner(System.in);
 
     public static void addVehicle() {
@@ -126,18 +119,18 @@ class Vehicle {
         System.out.print("Enter the Vehicle Index Number: ");
         int index = scan.nextInt();
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
-        boolean find = false;
+        boolean found = false;
         while(iterator.hasNext()){
             AutoMobile existingAuto = iterator.next();
             if (existingAuto.getMake().equalsIgnoreCase(make) && existingAuto.getModel().equalsIgnoreCase(model)
             && existingAuto.getIndex() == index) {
                 iterator.remove();
-                find = true;
+                found = true;
                 break;
             }
         }
 
-        if(find){
+        if(found){
             System.out.println(GREEN + "\nSTATUS: Succesful" + RESET);
             PressEnter();
         }
@@ -221,6 +214,7 @@ class Vehicle {
             }
             bw.close();
 
+            System.out.println(YELLOW + "FILE OUTPUT:\n" + RESET);
             System.out.println("\nVEHICLE INVENTORY");
             System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
     
@@ -228,7 +222,7 @@ class Vehicle {
                 System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
             }
     
-            System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
+            System.out.println(GREEN + "\nFILE OUTPUT STATUS: Success" + RESET);
             PressEnter();
 
         } catch (IOException e) {
@@ -256,70 +250,4 @@ class Vehicle {
         scan.nextLine();
         scan.nextLine();
     }
-
-    // public static void main(String[] args) throws FileNotFoundException {
-
-    //     do {
-    
-    //         clearScreen();
-    //         System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n" + RESET);
-            
-    //         System.out.println("INVENTORY OPTIONS");
-    //         System.out.println("=======================*");
-    //         System.out.println("1. Add Vehicle         |");
-    //         System.out.println("2. Remove Vehicle      |");
-    //         System.out.println("3. Update Vehicle      |");
-    //         System.out.println("4. Print Vehicle List  |");
-    //         System.out.println("5. Exit                |");
-    //         System.out.println("=======================*\n");
-
-    //         System.out.print("\nPlease enter your choice: ");
-    //         int userChoice = scan.nextInt();
-
-    //         switch (userChoice) {
-    //             case 1:
-    //                 clearScreen();
-    //                 addVehicle();
-    //                 break;
-    //             case 2:
-    //                 clearScreen();
-    //                 removeVehicle();
-    //                 break;
-    //             case 3:
-    //                 clearScreen();
-    //                 updateVehicle();
-    //                 break;
-    //             case 4:
-    //                 clearScreen();
-    //                 printfile();
-    //                 break;
-    //             case 5:
-    //             System.out.println("\nThank you for using the vehicle management system. Goodbye.");
-    //             System.exit(0);
-    //             break;
-    //             default:
-    //                 System.out.println(RED + "\nInvalid choice" + RESET);
-    //                 PressEnter();
-    //         }
-
-    //         if(userChoice == 4)
-    //             break;
-
-    //     } while (true);
-
-    //     PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
-    //     String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
-
-    //     for (AutoMobile auto : vehicleList) {
-    //         text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
-    //     }
-
-    //     pw.write(text);
-    //     pw.flush();
-    //     pw.close();
-
-    //     System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
-    //     System.out.println();
-    //     System.out.println(text);
-    //}
 }

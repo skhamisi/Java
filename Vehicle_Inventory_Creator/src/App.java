@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.*;
+import java.util.Date;
 import java.util.Scanner;
 
 public class App {
@@ -10,11 +11,12 @@ public class App {
         final String GREEN = "\u001B[32m";
         final String YELLOW = "\u001B[33m";
         final Scanner scan = new Scanner(System.in);
+        final Date date = new Date();
 
         do {
 
             Vehicle.clearScreen();
-            System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\n\n" + RESET);
+            System.out.println(YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\nCURRENT TIME: " + date + "\n\n" + RESET);
             
             System.out.println("INVENTORY OPTIONS");
             System.out.println("=======================*");
@@ -58,22 +60,7 @@ public class App {
                 break;
 
         } while (true);
-
-        PrintWriter pw = new PrintWriter("VEHICLE INVENTORY");
-        String text = "Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n";
-
-        for (AutoMobile auto : Vehicle.vehicleList) {
-            text += auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n";
-        }
-
-        pw.write(text);
-        pw.flush();
-        pw.close();
-
-        System.out.println(GREEN + "FILE OUTPUT STATUS: Success" + RESET);
-        System.out.println();
-        System.out.println(text);
-
+        
         scan.close();
     }
 }
