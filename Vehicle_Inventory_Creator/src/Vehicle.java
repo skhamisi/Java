@@ -21,9 +21,9 @@ public class Vehicle {
         int year = Util.scan.nextInt();
         System.out.print(Util.RESET + "Enter Vehicle Mileage: " + Util.YELLOW);
         int mileage = Util.scan.nextInt();
-        System.out.print(Util.RESET + "Enter the Vehicle Index Number: " + Util.YELLOW);
-        int index = Util.scan.nextInt();
-        AutoMobile newAuto = new AutoMobile(make, model, color, year, mileage, index);
+        System.out.print(Util.RESET + "Enter the Vehicle ID: " + Util.YELLOW);
+        int id = Util.scan.nextInt();
+        AutoMobile newAuto = new AutoMobile(make, model, color, year, mileage, id);
         vehicleList.add(newAuto);
 
         System.out.println(Util.GREEN + "\nSTATUS: Succesful" + Util.RESET);
@@ -39,14 +39,14 @@ public class Vehicle {
         String make = Util.scan.next();
         System.out.print(Util.RESET + "Enter Vehicle Model: " + Util.YELLOW);
         String model = Util.scan.next();
-        System.out.print(Util.RESET + "Enter the Vehicle Index Number: " + Util.YELLOW);
-        int index = Util.scan.nextInt();
+        System.out.print(Util.RESET + "Enter Vehicle ID: " + Util.YELLOW);
+        int id = Util.scan.nextInt();
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean found = false;
         while(iterator.hasNext()){
             AutoMobile existingAuto = iterator.next();
-            if (existingAuto.getMake().equalsIgnoreCase(make) && existingAuto.getModel().equalsIgnoreCase(model)
-            && existingAuto.getIndex() == index) {
+            if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
+            && existingAuto.getID() == id) {
                 iterator.remove();
                 found = true;
                 break;
@@ -70,12 +70,12 @@ public class Vehicle {
         Util.PrintHeader();
         System.out.println("      UPDATE VEHICLE      ");
         System.out.println("-------------------------");
-        System.out.print("Enter the Make of Automobile: " + Util.YELLOW);
+        System.out.print("Enter Vehicle Make: " + Util.YELLOW);
         String make = Util.scan.next();
-        System.out.print(Util.RESET + "Enter the Model of Automobile: " + Util.YELLOW);
+        System.out.print(Util.RESET + "Enter Vehicle Model: " + Util.YELLOW);
         String model = Util.scan.next();
-        System.out.print(Util.RESET + "Enter the Vehicle Index Number: " + Util.YELLOW);
-        int index = Util.scan.nextInt();
+        System.out.print(Util.RESET + "Enter Vehicle ID: " + Util.YELLOW);
+        int id = Util.scan.nextInt();
 
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean found = false;
@@ -84,8 +84,8 @@ public class Vehicle {
 
             AutoMobile existingAuto = iterator.next();
 
-            if (existingAuto.getMake().equalsIgnoreCase(make) && existingAuto.getModel().equalsIgnoreCase(model)
-            && existingAuto.getIndex() == index) {
+            if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
+            && existingAuto.getID() == id) {
                 System.out.println(Util.GREEN + "\n*Vehicle Found*" + Util.RESET);
                 System.out.println("---------------");
                 System.out.println("Please enter updated values");
@@ -99,12 +99,12 @@ public class Vehicle {
                 int year = Util.scan.nextInt();
                 System.out.print(Util.RESET + "Mileage : " + Util.YELLOW);
                 int mileage = Util.scan.nextInt();
-                existingAuto.setMake(make);
-                existingAuto.setModel(model);
-                existingAuto.setColor(color);
-                existingAuto.setYear(year);
-                existingAuto.setMileage(mileage);
-                existingAuto.setIndex(index);
+                existingAuto.SetMake(make);
+                existingAuto.SetModel(model);
+                existingAuto.SetColor(color);
+                existingAuto.SetYear(year);
+                existingAuto.SetMileage(mileage);
+                //existingAuto.setIndex(id);
                 found = true;
                 break;
             }
@@ -164,7 +164,7 @@ public class Vehicle {
             System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
     
             for (AutoMobile auto : vehicleList) {
-                System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
+                System.out.println(auto.getID() + "     " + auto.GetMake() + "   " + auto.GetModel() + "   " + auto.GetColor()+ "   " + auto.GetYear() + "   " + auto.GetMileage() + " mi." + "\n");
             }
 
             Util.PressEnter();
