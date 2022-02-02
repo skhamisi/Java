@@ -16,21 +16,21 @@ public class App {
             System.out.println("5. Exit                |");
             System.out.println("=======================*\n");
 
-            System.out.print("\nENTER CHOICE: ");
+            System.out.print(Util.CYAN + "\nENTER CHOICE: " + Util.YELLOW);
             int userChoice = Util.scan.nextInt();
 
             switch (userChoice) {
                 case 1:
-                    Vehicle.addVehicle();
+                    Vehicle.AddVehicle();
                     break;
                 case 2:
-                    Vehicle.removeVehicle();
+                    Vehicle.RemoveVehicle();
                     break;
                 case 3:
-                    Vehicle.updateVehicle();
+                    Vehicle.UpdateVehicle();
                     break;
                 case 4:
-                    Vehicle.printfile();
+                    Vehicle.PrintFile();
                     break;
                 case 5:
                 System.out.println("\nThank you for using the vehicle management system. Goodbye.\n");

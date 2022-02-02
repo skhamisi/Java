@@ -5,25 +5,23 @@ import java.util.ListIterator;
 public class Vehicle {
     
     static ArrayList<AutoMobile> vehicleList = new ArrayList<>();
-    // public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
-    public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
 
     // Adds vehicle to inventory list
-    public static void addVehicle() {
+    public static void AddVehicle() {
         Util.PrintHeader();
-        System.out.println("      *Add Vehicle*      " + Util.RESET);
+        System.out.println("      *Add Vehicle*      ");
         System.out.println("-------------------------");
-        System.out.print("Enter Vehicle Make: ");
+        System.out.print("Enter Vehicle Make: " + Util.YELLOW);
         String make = Util.scan.next();
-        System.out.print("Enter Vehicle Model: ");
+        System.out.print(Util.RESET + "Enter Vehicle Model: " + Util.YELLOW);
         String model = Util.scan.next();
-        System.out.print("Enter Vehicle Color: ");
+        System.out.print(Util.RESET + "Enter Vehicle Color: " + Util.YELLOW);
         String color = Util.scan.next();
-        System.out.print("Enter Vehicle Year: ");
+        System.out.print(Util.RESET + "Enter Vehicle Year: " + Util.YELLOW);
         int year = Util.scan.nextInt();
-        System.out.print("Enter Vehicle Mileage: ");
+        System.out.print(Util.RESET + "Enter Vehicle Mileage: " + Util.YELLOW);
         int mileage = Util.scan.nextInt();
-        System.out.print("Enter the Vehicle Index Number: ");
+        System.out.print(Util.RESET + "Enter the Vehicle Index Number: " + Util.YELLOW);
         int index = Util.scan.nextInt();
         AutoMobile newAuto = new AutoMobile(make, model, color, year, mileage, index);
         vehicleList.add(newAuto);
@@ -33,15 +31,15 @@ public class Vehicle {
     }
 
     // Removes vehicle from inventory list
-    public static void removeVehicle() {
+    public static void RemoveVehicle() {
         Util.PrintHeader();
-        System.out.println("      *REMOVE VEHICLE*" + Util.RESET);
+        System.out.println("      *REMOVE VEHICLE*");
         System.out.println("---------------------------");
-        System.out.print("Enter Vehicle Make: ");
+        System.out.print("Enter Vehicle Make: " + Util.YELLOW);
         String make = Util.scan.next();
-        System.out.print("Enter Vehicle Model: ");
+        System.out.print(Util.RESET + "Enter Vehicle Model: " + Util.YELLOW);
         String model = Util.scan.next();
-        System.out.print("Enter the Vehicle Index Number: ");
+        System.out.print(Util.RESET + "Enter the Vehicle Index Number: " + Util.YELLOW);
         int index = Util.scan.nextInt();
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean found = false;
@@ -68,15 +66,15 @@ public class Vehicle {
     }
 
     // Finds vehicle in inventory list and allows user to update vehicle attributes
-    public static void updateVehicle() {
+    public static void UpdateVehicle() {
         Util.PrintHeader();
-        System.out.println("      UPDATE VEHICLE      " + Util.RESET);
+        System.out.println("      UPDATE VEHICLE      ");
         System.out.println("-------------------------");
-        System.out.print("Enter the Make of Automobile: ");
+        System.out.print("Enter the Make of Automobile: " + Util.YELLOW);
         String make = Util.scan.next();
-        System.out.print("Enter the Model of Automobile: ");
+        System.out.print(Util.RESET + "Enter the Model of Automobile: " + Util.YELLOW);
         String model = Util.scan.next();
-        System.out.print("Enter the Vehicle Index Number: ");
+        System.out.print(Util.RESET + "Enter the Vehicle Index Number: " + Util.YELLOW);
         int index = Util.scan.nextInt();
 
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
@@ -91,15 +89,15 @@ public class Vehicle {
                 System.out.println(Util.GREEN + "\n*Vehicle Found*" + Util.RESET);
                 System.out.println("---------------");
                 System.out.println("Please enter updated values");
-                System.out.print("Make: ");
+                System.out.print("Make: " + Util.YELLOW);
                 make = Util.scan.next();
-                System.out.print("Model: ");
+                System.out.print(Util.RESET + "Model: " + Util.YELLOW);
                 model = Util.scan.next();
-                System.out.print("Color: ");
+                System.out.print(Util.RESET + "Color: " + Util.YELLOW);
                 String color = Util.scan.next();
-                System.out.print("Year: ");
+                System.out.print(Util.RESET + "Year: " + Util.YELLOW);
                 int year = Util.scan.nextInt();
-                System.out.print("Mileage : ");
+                System.out.print(Util.RESET + "Mileage : " + Util.YELLOW);
                 int mileage = Util.scan.nextInt();
                 existingAuto.setMake(make);
                 existingAuto.setModel(model);
@@ -124,34 +122,51 @@ public class Vehicle {
     }
 
     // Prints .txt file with all current vehicles in inventory list
-    public static void printfile() {
+    public static void PrintFile() {
 
         BufferedWriter bw = null;
         FileWriter fw = null;
 
         try {
-            fw = new FileWriter(FILENAME);
+            fw = new FileWriter(Util.FILENAME);
             bw = new BufferedWriter(fw);
-            String fileContent = "File Date: " + Util.date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
-            bw.write(fileContent);
-            
-            for (AutoMobile auto : vehicleList) {
-
-                bw.write(auto.toString() + "\n");
-            }
-            bw.close();
 
             Util.PrintHeader();
 
-            System.out.println(Util.YELLOW + "FILE OUTPUT:\n" + Util.RESET);
+            System.out.print("\nWould you like to print a text file of the inventory?\n");
+            System.out.print(Util.CYAN + "(Y) yes / (N) No: " + Util.RESET);
+            String printChoice = Util.scan.next();
+
+            if (printChoice.equalsIgnoreCase("Y")) {
+
+                String fileContent = "Inventory Date: " + Util.date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
+                bw.write(fileContent);
+                
+                for (AutoMobile auto : vehicleList) {
+    
+                    bw.write(auto.toString() + "\n");
+                }
+                bw.close();
+
+                System.out.println(Util.GREEN + "\nFILE OUTPUT STATUS: Success" + Util.RESET);
+                Util.PressEnter();
+            }
+            else {
+                System.out.println("Text file will not be printed.");
+                System.out.println(Util.RED + "\nFILE OUTPUT STATUS: Not Printed" + Util.RESET);
+                Util.PressEnter();
+            }
+
+            Util.PrintHeader();
+
+            System.out.println(Util.CYAN + "CURRENT INVENTORY:\n" + Util.RESET);
             System.out.println("\nVEHICLE INVENTORY");
             System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
     
             for (AutoMobile auto : vehicleList) {
                 System.out.println(auto.getIndex() + "     " + auto.getMake() + "   " + auto.getModel() + "   " + auto.getColor()+ "   " + auto.getYear() + "   " + auto.getMileage() + " mi." + "\n");
             }
-    
-            System.out.println(Util.GREEN + "\nFILE OUTPUT STATUS: Success" + Util.RESET);
+
             Util.PressEnter();
 
         } catch (IOException e) {

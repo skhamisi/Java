@@ -1,14 +1,21 @@
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Util {
 
     // Sets ASCII color values to variables
-    final static String RESET = "\u001B[0m";
-    final static String RED = "\u001B[31m";
-    final static String GREEN = "\u001B[32m";
-    final static String YELLOW = "\u001B[33m";
-    final static Date date = new Date();
+    static final String RESET = "\u001B[0m";
+    static final String RED = "\033[1;31m";
+    static final String GREEN = "\033[1;32m";
+    static final String CYAN_Bold_Underline = "\033[4;36m" + "\033[1;36m";
+    static final String CYAN = "\033[1;36m";
+    static final String YELLOW = "\033[1;33m";
+    static final LocalDateTime localDateTime = LocalDateTime.now();
+    static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm:ss");
+    static final String date = localDateTime.format(formattedDate);
+    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
     static final Scanner scan = new Scanner(System.in);
 
     // Clears screen of any previous text
@@ -27,6 +34,7 @@ public class Util {
 
     public static void PrintHeader() {
         clearScreen();
-        System.out.println(Util.YELLOW + "VEHICLE INVENTORY MANAGEMENT SYSTEM\nCURRENT TIME: " + Util.date + "\n\n" + Util.RESET);
+        System.out.println(CYAN_Bold_Underline + "VEHICLE INVENTORY MANAGEMENT SYSTEM" + RESET);
+        System.out.println(CYAN + "CURRENT TIME: "  + date + "\n\n" + RESET);
     }
 }
