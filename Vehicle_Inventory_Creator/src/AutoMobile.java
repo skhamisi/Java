@@ -6,63 +6,63 @@ public class AutoMobile {
     private String color;
     private int year;
     private int mileage;
-    private int index = 0;
+    private int id = 0;
 
     // AutoMobile Object Constructor
-    public AutoMobile(String make, String model, String color, int year, int mileage, int index) {
+    public AutoMobile(String make, String model, String color, int year, int mileage, int id) {
         this.make = make;
         this.model = model;
         this.color = color;
         this.year = year;
         this.mileage = mileage;
-        this.index = index;
+        this.id = id;
     }
     
-    public String getMake() {
+    public String GetMake() {
         return make;
     }
-    public void setMake(String make) {
+    public void SetMake(String make) {
         this.make = make;
     }
 
-    public String getModel() {
+    public String GetModel() {
         return model;
     }
-    public void setModel(String model) {
+    public void SetModel(String model) {
         this.model = model;
     }
 
-    public String getColor() {
+    public String GetColor() {
         return color;
     }
-    public void setColor(String color) {
+    public void SetColor(String color) {
         this.color = color;
     }
 
-    public int getYear() {
+    public int GetYear() {
         return year;
     }
-    public void setYear(int year) {
+    public void SetYear(int year) {
         this.year = year;
     }
 
-    public int getMileage() {
+    public int GetMileage() {
         return mileage;
     }
-    public void setMileage(int mileage) {
+    public void SetMileage(int mileage) {
         this.mileage = mileage;
     }
 
-    public int getIndex() {
-        return index;
+    public int getID() {
+        return id;
     }
-    public void setIndex(int index) {
-        this.index = index;
+    public void SetIndex(int id) {
+        this.id = id;
     }
 
     // Overrides toString() to return values of arrayList
     @Override
     public String toString() {
-       return this.getIndex() + "   " + this.getMake() + "  " + this.getModel() + "  " + this.getColor()+ "  " + this.getYear() + "  " + this.getMileage() + " mi.";
+       return this.getID() + "   " + this.GetMake() + "  " + this.GetModel() + "  " + this.GetColor()+ "  " + this.GetYear() + "  " + this.GetMileage() + " mi.";
     }
 }
