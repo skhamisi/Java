@@ -9,6 +9,7 @@ public class Vehicle {
     // Adds vehicle to inventory list
     public static void AddVehicle() {
         Util.PrintHeader();
+
         System.out.println("      *Add Vehicle*      ");
         System.out.println("-------------------------");
         System.out.print("Enter Vehicle Make: " + Util.YELLOW);
@@ -23,6 +24,7 @@ public class Vehicle {
         int mileage = Util.scan.nextInt();
         System.out.print(Util.RESET + "Enter the Vehicle ID: " + Util.YELLOW);
         int id = Util.scan.nextInt();
+
         AutoMobile newAuto = new AutoMobile(make, model, color, year, mileage, id);
         vehicleList.add(newAuto);
 
@@ -33,6 +35,7 @@ public class Vehicle {
     // Removes vehicle from inventory list
     public static void RemoveVehicle() {
         Util.PrintHeader();
+
         System.out.println("      *REMOVE VEHICLE*");
         System.out.println("---------------------------");
         System.out.print("Enter Vehicle Make: " + Util.YELLOW);
@@ -41,10 +44,13 @@ public class Vehicle {
         String model = Util.scan.next();
         System.out.print(Util.RESET + "Enter Vehicle ID: " + Util.YELLOW);
         int id = Util.scan.nextInt();
+
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean found = false;
+
         while(iterator.hasNext()){
             AutoMobile existingAuto = iterator.next();
+
             if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
             && existingAuto.getID() == id) {
                 iterator.remove();
@@ -68,6 +74,7 @@ public class Vehicle {
     // Finds vehicle in inventory list and allows user to update vehicle attributes
     public static void UpdateVehicle() {
         Util.PrintHeader();
+
         System.out.println("      UPDATE VEHICLE      ");
         System.out.println("-------------------------");
         System.out.print("Enter Vehicle Make: " + Util.YELLOW);
@@ -81,7 +88,6 @@ public class Vehicle {
         boolean found = false;
 
         while(iterator.hasNext()) {
-
             AutoMobile existingAuto = iterator.next();
 
             if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
@@ -99,6 +105,7 @@ public class Vehicle {
                 int year = Util.scan.nextInt();
                 System.out.print(Util.RESET + "Mileage : " + Util.YELLOW);
                 int mileage = Util.scan.nextInt();
+
                 existingAuto.SetMake(make);
                 existingAuto.SetModel(model);
                 existingAuto.SetColor(color);
@@ -134,12 +141,12 @@ public class Vehicle {
             Util.PrintHeader();
 
             System.out.print("\nWould you like to print a text file of the inventory?\n");
-            System.out.print(Util.CYAN + "(Y) yes / (N) No: " + Util.RESET);
+            System.out.print(Util.CYAN + "(Y) yes / (N) No: " + Util.YELLOW);
             String printChoice = Util.scan.next();
 
             if (printChoice.equalsIgnoreCase("Y")) {
 
-                String fileContent = "Inventory Date: " + Util.date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
+                String fileContent = Util. RESET + "Inventory Date: " + Util.date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
                 bw.write(fileContent);
                 
                 for (AutoMobile auto : vehicleList) {
@@ -161,7 +168,7 @@ public class Vehicle {
 
             System.out.println(Util.CYAN + "CURRENT INVENTORY:\n" + Util.RESET);
             System.out.println("\nVEHICLE INVENTORY");
-            System.out.println("Index | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
+            System.out.println("ID | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
     
             for (AutoMobile auto : vehicleList) {
                 System.out.println(auto.getID() + "     " + auto.GetMake() + "   " + auto.GetModel() + "   " + auto.GetColor()+ "   " + auto.GetYear() + "   " + auto.GetMileage() + " mi." + "\n");
