@@ -48,7 +48,7 @@ public class Vehicle {
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean found = false;
 
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             AutoMobile existingAuto = iterator.next();
 
             if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
@@ -59,11 +59,11 @@ public class Vehicle {
             }
         }
 
-        if(found){
+        if (found) {
             System.out.println(Util.GREEN + "\nSTATUS: Succesful" + Util.RESET);
             Util.PressEnter();
         }
-        else{
+        else {
             System.out.println(Util.RED + "\nSTATUS: Failed");
             System.out.println("*Vehicle does not exist" + Util.RESET);
             Util.PressEnter();
@@ -87,7 +87,7 @@ public class Vehicle {
         ListIterator<AutoMobile> iterator = vehicleList.listIterator();
         boolean found = false;
 
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             AutoMobile existingAuto = iterator.next();
 
             if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
