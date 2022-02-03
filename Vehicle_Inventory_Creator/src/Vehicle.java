@@ -143,10 +143,10 @@ public class Vehicle {
             System.out.print("\nWould you like to print a text file of the inventory?\n");
             System.out.print(Util.CYAN + "(Y) yes / (N) No: " + Util.YELLOW);
             String printChoice = Util.scan.next();
-
+            System.out.print(Util.RESET);
             if (printChoice.equalsIgnoreCase("Y")) {
 
-                String fileContent = Util. RESET + "Inventory Date: " + Util.date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
+                String fileContent = "Inventory Date: " + Util.date + "\n\nID | Make | Model | Color | Year | Mileage\n------------------------------------------\n";
                 bw.write(fileContent);
                 
                 for (AutoMobile auto : vehicleList) {
