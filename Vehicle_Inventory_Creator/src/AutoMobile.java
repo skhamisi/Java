@@ -53,16 +53,16 @@ public class AutoMobile {
         this.mileage = mileage;
     }
 
-    public int getID() {
+    public int GetID() {
         return id;
     }
-    public void SetIndex(int id) {
+    public void SetID(int id) {
         this.id = id;
     }
 
     // Overrides toString() to return values of arrayList
     @Override
     public String toString() {
-       return this.getID() + "   " + this.GetMake() + "  " + this.GetModel() + "  " + this.GetColor()+ "  " + this.GetYear() + "  " + this.GetMileage() + " mi.";
+       return this.GetID() + "   " + this.GetMake() + "  " + this.GetModel() + "  " + this.GetColor()+ "  " + this.GetYear() + "  " + this.GetMileage() + " mi.";
     }
 }
