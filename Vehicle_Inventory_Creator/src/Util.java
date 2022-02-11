@@ -41,7 +41,7 @@ public class Util {
     static void PrintMenu() {
         do {
 
-            Util.PrintHeader();
+            PrintHeader();
             
             System.out.println("INVENTORY OPTIONS");
             System.out.println("=======================*");
@@ -52,10 +52,10 @@ public class Util {
             System.out.println("5. Exit                |");
             System.out.println("=======================*\n");
 
-            System.out.print(Util.CYAN + "\nENTER CHOICE: " + Util.YELLOW);
-            int userChoice = Util.scan.nextInt();
+            System.out.print(CYAN + "\nENTER CHOICE: " + YELLOW);
+            int userChoice = scan.nextInt();
 
-            Util.SwitchMenu(userChoice);
+            SwitchMenu(userChoice);
 
         } while (true);
     }
@@ -76,13 +76,13 @@ public class Util {
                 Vehicle.PrintFile();
                 break;
             case 5:
-                System.out.println(Util.RESET + Util.CYAN + "\nThank you for using the vehicle management system. Goodbye.\n" + Util.RESET);
-                Util.scan.close();
+                System.out.println(RESET + CYAN + "\nThank you for using the vehicle management system. Goodbye.\n" + RESET);
+                scan.close();
                 System.exit(0);
                 break;
             default:
-                System.out.println(Util.RED + "\nInvalid choice" + Util.RESET);
-                Util.PressEnter();
+                System.out.println(RED + "\nInvalid choice" + RESET);
+                PressEnter();
         }
     }
 }

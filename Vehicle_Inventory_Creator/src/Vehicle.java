@@ -52,7 +52,7 @@ public class Vehicle {
             AutoMobile existingAuto = iterator.next();
 
             if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
-            && existingAuto.getID() == id) {
+            && existingAuto.GetID() == id) {
                 iterator.remove();
                 found = true;
                 break;
@@ -91,7 +91,7 @@ public class Vehicle {
             AutoMobile existingAuto = iterator.next();
 
             if (existingAuto.GetMake().equalsIgnoreCase(make) && existingAuto.GetModel().equalsIgnoreCase(model)
-            && existingAuto.getID() == id) {
+            && existingAuto.GetID() == id) {
                 System.out.println(Util.GREEN + "\n*Vehicle Found*" + Util.RESET);
                 System.out.println("---------------");
                 System.out.println("Please enter updated values");
@@ -111,7 +111,7 @@ public class Vehicle {
                 existingAuto.SetColor(color);
                 existingAuto.SetYear(year);
                 existingAuto.SetMileage(mileage);
-                //existingAuto.setIndex(id);
+                existingAuto.SetID(id);
                 found = true;
                 break;
             }
@@ -171,7 +171,7 @@ public class Vehicle {
             System.out.println("ID | Make | Model | Color | Year | Mileage\n---------------------------------------------\n");
     
             for (AutoMobile auto : vehicleList) {
-                System.out.println(auto.getID() + "     " + auto.GetMake() + "   " + auto.GetModel() + "   " + auto.GetColor()+ "   " + auto.GetYear() + "   " + auto.GetMileage() + " mi." + "\n");
+                System.out.println(auto.GetID() + "     " + auto.GetMake() + "   " + auto.GetModel() + "   " + auto.GetColor()+ "   " + auto.GetYear() + "   " + auto.GetMileage() + " mi." + "\n");
             }
 
             Util.PressEnter();
