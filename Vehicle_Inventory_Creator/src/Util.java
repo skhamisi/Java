@@ -14,8 +14,8 @@ public class Util {
     static final LocalDateTime localDateTime = LocalDateTime.now();
     static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm:ss");
     static final String date = localDateTime.format(formattedDate);
-    //public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
-    static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
+    public static final String FILENAME = "C:\\Users\\Samer\\Desktop\\AUTO_INVENTORY.txt";
+    //static final String FILENAME = "C:\\Users\\Samer.Khamisi\\Documents\\AUTO_INVENTORY.txt";
     static final Scanner scan = new Scanner(System.in);
 
     // Clears screen of any previous text
@@ -52,10 +52,10 @@ public class Util {
             System.out.println("5. Exit                |");
             System.out.println("=======================*\n");
 
-            System.out.print(Util.CYAN + "\nENTER CHOICE: " + Util.YELLOW);
-            int userChoice = Util.scan.nextInt();
+            System.out.print(CYAN + "\nENTER CHOICE: " + YELLOW);
+            int userChoice = scan.nextInt();
 
-            Util.SwitchMenu(userChoice);
+            SwitchMenu(userChoice);
 
         } while (true);
     }

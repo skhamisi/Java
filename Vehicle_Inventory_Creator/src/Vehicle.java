@@ -123,7 +123,7 @@ public class Vehicle {
         }
         else {
             System.out.println(Util.RED + "\nSTATUS: Failed");
-            System.out.println("*Vehicle does not exist" + Util.RESET);
+            System.out.println("Vehicle does not exist" + Util.RESET);
             Util.PressEnter();
         }
     }
