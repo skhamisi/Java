@@ -11,14 +11,14 @@ class CheckingAccount extends BankAccount {
         super(firstName, lastName, accountID, balance);
     }
 
-    void ProcessWithdrawal(double withdrawAmmount) {
+    void ProcessWithdrawal(double withdrawAmount) {
         
-        if (withdrawAmmount <= balance) {
-            Withdrawal(withdrawAmmount);
+        if (withdrawAmount <= balance) {
+            Withdrawal(withdrawAmount);
         }
-        else if (withdrawAmmount > balance) {
+        else if (withdrawAmount > balance) {
             int fee = 30;
-            Withdrawal(withdrawAmmount + fee);
+            Withdrawal(withdrawAmount + fee);
             System.out.println("\nA $30 overdraft fee has been assessed to your account");
         }
     }

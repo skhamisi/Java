@@ -13,7 +13,7 @@ public class Main {
         String input = CheckingAccount.scan.next();
 
         if (input.equalsIgnoreCase("y")) {
-            System.out.print("\nWithdrawal Ammount: $");
+            System.out.print("\nWithdrawal Amount: $");
             double withdrawalAmount = CheckingAccount.scan.nextDouble();
             account1.ProcessWithdrawal(withdrawalAmount);
             account1.DisplayAccount();
