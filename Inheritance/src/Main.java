@@ -1,7 +1,7 @@
 
 public class Main {
     public static void main(String[] args) throws Exception {
-
+        CheckingAccount.clearScreen();
         CheckingAccount account1 = CheckingAccount.CreateAccount();
 
         System.out.print("\nHow much would you like to deposit?: $");
