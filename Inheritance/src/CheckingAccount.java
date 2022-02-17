@@ -1,8 +1,5 @@
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Collections;
 
 class CheckingAccount extends BankAccount {
     static Random rn = new Random();
@@ -28,50 +25,45 @@ class CheckingAccount extends BankAccount {
 
     double[] CalculateInterest() {
         double apy = .01;
+        double apyTwo = .0025;
         double interestEarned;
         double newBalance;
-        // List<Double> values = new ArrayList<>();
-        double[] values = new double[2];
+        double totalInterestEarned = 0;
+        double[] values = new double[3];
 
         if (balance > 0 && balance <= 10000) {
-            interestEarned = balance * apy;
-            newBalance = balance + interestEarned;
+            apyTwo = 0;
+            totalInterestEarned = balance * apy;
+            newBalance = balance + totalInterestEarned;
             setBalance(newBalance);
         }
-        else if (balance > 1000) {
-            apy = .025;
+        else if (balance > 10000) {
+            double excessBalance = balance - 10000;
+            double excessInterestEarned = excessBalance * apyTwo;
+
             interestEarned = balance * apy;
+            totalInterestEarned = interestEarned + excessInterestEarned;
+            newBalance = balance + totalInterestEarned;
+            setBalance(balance);
+
         }
         else {
             interestEarned = 0;
         }
 
-        values[0] = interestEarned;
+        values[0] = totalInterestEarned;
         values[1] = apy;
-        // values.add(interestEarned);
-        // values.add(apy);
+        values[2] = apyTwo;
         return values;
     }
 
     void DisplayAccount() {
-        // double apy = .01;
-        // double interestEarned;
-        // double newBalance;
 
-        // if (balance > 0 && balance <= 10000) {
-        //     interestEarned = balance * apy;
-        //     newBalance = balance + interestEarned;
-        //     setBalance(newBalance);
-        // }
-        // else if (balance > 1000) {
-
-        // }
-        // else {
-        //     interestEarned = 0;
-        // }
         double[] values = CalculateInterest(); 
+
         AccountSummary();
-        System.out.println("APY: " + values[1] + "%");
+        System.out.println("APY earned on balance below $10000: " + values[1] + "%");
+        System.out.println("APY earned on balance above $10000: " + values[2] + "%");
         System.out.println("Interest Earned: $" + values[0]);
     }
 
