@@ -52,6 +52,6 @@ class BankAccount {
         System.out.println("\nAccount Summary\n===============\n" +
         "Account ID: " + this.getAccountID() + "\n" +
         "Name: " + this.getFirstName() + " " + this.getLastName() + "\n" +
-        "Balance: $" + this.getBalance());
+        "Balance: $" + String.format("%.2f",this.getBalance()));
     }
 }
