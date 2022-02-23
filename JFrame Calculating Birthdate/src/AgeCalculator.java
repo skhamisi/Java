@@ -13,13 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.FlowLayout;
 
-public class AgeCalculator implements ActionListener {
+public class AgeCalculator {
 
     private final LocalDate currentDate = LocalDate.now();
     private final JFrame frame;
     private final JComboBox dayComboBox, monthComboBox, yearComboBox;
     private final JLabel dayLabel, monthLabel, yearLabel;
-    private final JButton calculateAgeButton;
+    private final JButton calculateAgeButton, exitButton;
 
     public AgeCalculator() {
 
@@ -42,9 +42,11 @@ public class AgeCalculator implements ActionListener {
         }
 
         this.calculateAgeButton = new JButton("Calculate");
-        //calculateAgeButton.setHorizontalAlignment(JButton.CENTER);
+        calculateAgeButton.addActionListener(e -> calculateAge());
 
-        calculateAgeButton.addActionListener(this);
+        this.exitButton = new JButton("Exit");
+        exitButton.addActionListener(e -> System.exit(0));
+
 
         frame.getContentPane().setLayout(new FlowLayout());
         frame.setPreferredSize(new Dimension(400, 110));
@@ -55,6 +57,7 @@ public class AgeCalculator implements ActionListener {
         frame.add(yearLabel);
         frame.getContentPane().add(yearComboBox);
         frame.getContentPane().add(calculateAgeButton);
+        frame.getContentPane().add(exitButton);
 
         frame.pack();
 
@@ -106,16 +109,8 @@ public class AgeCalculator implements ActionListener {
         return intValue;
     }
 
-
-
     public static void main(final String... args) {
         javax.swing.SwingUtilities.invokeLater(AgeCalculator::new);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        calculateAge();
     }
 }
 
