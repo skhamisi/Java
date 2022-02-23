@@ -50,6 +50,7 @@ class CheckingAccount extends BankAccount {
         else {
             interestEarned = 0;
             apy = 0;
+            apyTwo = 0;
         }
 
         values[0] = totalInterestEarned;
