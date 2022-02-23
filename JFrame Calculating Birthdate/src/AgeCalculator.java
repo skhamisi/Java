@@ -43,7 +43,15 @@ public class AgeCalculator {
         calculateAgeButton.addActionListener(e -> calculateAge());
 
         this.exitButton = new JButton("Exit");
-        exitButton.addActionListener(e -> System.exit(0));
+        //exitButton.addActionListener(e -> System.exit(0));
+        exitButton.addActionListener(e -> { 
+        int confirmed = JOptionPane.showConfirmDialog(null,
+        "Are you sure you want to exit?",
+        "EXIT",JOptionPane.YES_NO_OPTION);
+            if(confirmed == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
+        });
 
 
         frame.getContentPane().setLayout(new FlowLayout());
