@@ -8,19 +8,21 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+
 import java.awt.FlowLayout;
 
 public class AgeCalculator {
 
     private final LocalDate currentDate = LocalDate.now();
-    private final JFrame frame;
+    private final JFrame mainFrame;
     private final JComboBox dayComboBox, monthComboBox, yearComboBox;
     private final JLabel dayLabel, monthLabel, yearLabel;
     private final JButton calculateAgeButton, exitButton;
 
     public AgeCalculator() {
 
-        this.frame = new JFrame("Calculate Age");
+        this.mainFrame = new JFrame("Calculate Age");
 
         this.dayLabel = new JLabel("Day:");
         this.monthLabel = new JLabel("Month:");
@@ -53,32 +55,36 @@ public class AgeCalculator {
         });
 
 
-        frame.getContentPane().setLayout(new FlowLayout());
-        frame.setPreferredSize(new Dimension(400, 110));
-        frame.add(dayLabel);
-        frame.getContentPane().add(dayComboBox);
-        frame.add(monthLabel);
-        frame.getContentPane().add(monthComboBox);
-        frame.add(yearLabel);
-        frame.getContentPane().add(yearComboBox);
-        frame.getContentPane().add(calculateAgeButton);
-        frame.getContentPane().add(exitButton);
+        mainFrame.getContentPane().setLayout(new FlowLayout());
+        mainFrame.setPreferredSize(new Dimension(400, 110));
+        mainFrame.add(dayLabel);
+        mainFrame.getContentPane().add(dayComboBox);
+        mainFrame.add(monthLabel);
+        mainFrame.getContentPane().add(monthComboBox);
+        mainFrame.add(yearLabel);
+        mainFrame.getContentPane().add(yearComboBox);
+        mainFrame.getContentPane().add(calculateAgeButton);
+        mainFrame.getContentPane().add(exitButton);
 
-        frame.pack();
+        mainFrame.pack();
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setResizable(true);
 
-        //Centers frame to middle of screen on startup
+        centerFrame(mainFrame);
+
+        mainFrame.setVisible(true);
+    }
+    
+
+    private void centerFrame(JFrame frame) {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
         frame.setLocation((dim.width - frame.getWidth()) / 2,
-                (dim.height - frame.getHeight()) / 2);
-
-        frame.setVisible(true);
+            (dim.height - frame.getHeight()) / 2);
     }
 
-    public void calculateAge() {
+    private void calculateAge() {
         
         int day = returnIntValue(dayComboBox);
         int year = returnIntValue(yearComboBox);
@@ -91,13 +97,15 @@ public class AgeCalculator {
             long years = ChronoUnit.YEARS.between(start, currentDate);
 
         JOptionPane.showMessageDialog(
-                frame,
+                mainFrame,
                 "You are " + years + " years"  + " old.",
                 "Age",
                 JOptionPane.INFORMATION_MESSAGE);
         
         // JFrame ageFrame = new JFrame();
-        // JLabel showAge = new JLabel("You are " + years + " years"  + " old.");
+        // centerFrame(ageFrame);
+        // ageFrame.setSize(200, 100);
+        // JLabel showAge = new JLabel("You are " + years + " years"  + " old.", SwingConstants.CENTER);
         // ageFrame.add(showAge);
 
         // ageFrame.setVisible(true);
