@@ -3,7 +3,6 @@ import java.awt.Toolkit;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -28,14 +27,14 @@ public class AgeCalculator {
         this.yearLabel = new JLabel("Year:");
         
         this.dayComboBox = new JComboBox<>();
-        for(int i = 1; i <= 31; i++) {
+        for (int i = 1; i <= 31; i++) {
             dayComboBox.addItem(i);
         }
 
         this.monthComboBox = new JComboBox<>(Month.values());
 
         this.yearComboBox = new JComboBox<>();
-        for(int i = currentDate.getYear(); i >= 1940; i--) {
+        for (int i = currentDate.getYear(); i >= 1930; i--) {
             yearComboBox.addItem(i);
         }
 
