@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import java.awt.FlowLayout;
@@ -16,6 +17,7 @@ public class AgeCalculator {
 
     private final LocalDate currentDate = LocalDate.now();
     private final JFrame mainFrame;
+    private final JPanel mainPanel;
     private final JComboBox dayComboBox, monthComboBox, yearComboBox;
     private final JLabel dayLabel, monthLabel, yearLabel;
     private final JButton calculateAgeButton, exitButton;
@@ -24,18 +26,20 @@ public class AgeCalculator {
 
         this.mainFrame = new JFrame("Calculate Age");
 
+        this.mainPanel = new JPanel();
+
         this.dayLabel = new JLabel("Day:");
         this.monthLabel = new JLabel("Month:");
         this.yearLabel = new JLabel("Year:");
         
-        this.dayComboBox = new JComboBox<>();
+        this.dayComboBox = new JComboBox<Integer>();
         for (int i = 1; i <= 31; i++) {
             dayComboBox.addItem(i);
         }
 
-        this.monthComboBox = new JComboBox<>(Month.values());
+        this.monthComboBox = new JComboBox<Month>(Month.values());
 
-        this.yearComboBox = new JComboBox<>();
+        this.yearComboBox = new JComboBox<Integer>();
         for (int i = currentDate.getYear(); i >= 1930; i--) {
             yearComboBox.addItem(i);
         }
@@ -44,7 +48,6 @@ public class AgeCalculator {
         calculateAgeButton.addActionListener(e -> calculateAge());
 
         this.exitButton = new JButton("Exit");
-        //exitButton.addActionListener(e -> System.exit(0));
         exitButton.addActionListener(e -> { 
         int confirmed = JOptionPane.showConfirmDialog(null,
         "Are you sure you want to exit?",
@@ -53,6 +56,9 @@ public class AgeCalculator {
                 System.exit(0);
             }
         });
+
+        mainPanel.add(calculateAgeButton);
+        mainPanel.add(exitButton);
 
 
         mainFrame.getContentPane().setLayout(new FlowLayout());
@@ -63,8 +69,8 @@ public class AgeCalculator {
         mainFrame.getContentPane().add(monthComboBox);
         mainFrame.add(yearLabel);
         mainFrame.getContentPane().add(yearComboBox);
-        mainFrame.getContentPane().add(calculateAgeButton);
-        mainFrame.getContentPane().add(exitButton);
+        mainFrame.getContentPane().add(mainPanel);
+        //mainFrame.getContentPane().add(exitButton);
 
         mainFrame.pack();
 
@@ -86,11 +92,18 @@ public class AgeCalculator {
 
     private void calculateAge() {
         
-        int day = returnIntValue(dayComboBox);
-        int year = returnIntValue(yearComboBox);
+        //int day = returnIntValue(dayComboBox);
+        Integer day = (Integer)dayComboBox.getSelectedItem();
+        Month month = (Month)monthComboBox.getSelectedItem();
+        // int year = returnIntValue(yearComboBox);
+        Integer year = (Integer)yearComboBox.getSelectedItem();
+
+        // LocalDate start = LocalDate.of(year, 
+        // monthComboBox.getSelectedIndex() + 1,
+        // day);
 
         LocalDate start = LocalDate.of(year, 
-        monthComboBox.getSelectedIndex() + 1,
+        month.getValue(),
         day);
 
         if ((start != null) && (currentDate != null)) {
