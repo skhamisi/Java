@@ -113,6 +113,19 @@ public class AgeCalculator {
     }
 
     /**
+     * @newFrame() is an experimental method for creating new JFrame
+     */
+    // void newFrame(JFrame jFrameName, JLabel jLabelName, String message) {
+    //     jFrameName = new JFrame();
+    //     centerFrame(jFrameName);
+    //     jFrameName.setSize(200, 100);
+    //     jLabelName = new JLabel(message, SwingConstants.CENTER);
+    //     jFrameName.add(jLabelName);
+
+    //     jFrameName.setVisible(true);
+    // }
+
+    /**
      * Gets the numeric value
      * 
      * @return the numeric object value of the JComboBox
