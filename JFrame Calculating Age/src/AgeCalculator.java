@@ -70,7 +70,6 @@ public class AgeCalculator {
         mainFrame.add(yearLabel);
         mainFrame.getContentPane().add(yearComboBox);
         mainFrame.getContentPane().add(mainPanel);
-        //mainFrame.getContentPane().add(exitButton);
 
         mainFrame.pack();
 
@@ -90,19 +89,19 @@ public class AgeCalculator {
             (dim.height - frame.getHeight()) / 2);
     }
 
+    /**
+     * Creates and initializes a new "LocalDate object" called start"
+     * 
+     * @ChronotUnit.YEARS.between returns # of years between "start" and "currentDate"
+     */
     private void calculateAge() {
         
-        //int day = returnIntValue(dayComboBox);
         Integer day = (Integer)dayComboBox.getSelectedItem();
         Month month = (Month)monthComboBox.getSelectedItem();
-        // int year = returnIntValue(yearComboBox);
         Integer year = (Integer)yearComboBox.getSelectedItem();
 
-        // LocalDate start = LocalDate.of(year, 
-        // monthComboBox.getSelectedIndex() + 1,
-        // day);
-
-        LocalDate start = LocalDate.of(year, 
+        LocalDate start = LocalDate.of(
+        year, 
         month.getValue(),
         day);
 
@@ -114,42 +113,18 @@ public class AgeCalculator {
                 "You are " + years + " years"  + " old.",
                 "Age",
                 JOptionPane.INFORMATION_MESSAGE);
-        
-        // JFrame ageFrame = new JFrame();
-        // centerFrame(ageFrame);
-        // ageFrame.setSize(200, 100);
-        // JLabel showAge = new JLabel("You are " + years + " years"  + " old.", SwingConstants.CENTER);
-        // ageFrame.add(showAge);
+
+        /**
+         * Accomplishes same as JOptionPane.showMessageDialog, but using a JFrame instead of a JOptionPane
+         */
+            // JFrame ageFrame = new JFrame();
+            // centerFrame(ageFrame);
+            // ageFrame.setSize(200, 100);
+            // JLabel showAge = new JLabel("You are " + years + " years"  + " old.", SwingConstants.CENTER);
+            // ageFrame.add(showAge);
 
         // ageFrame.setVisible(true);
         }
-    }
-
-    /**
-     * @newFrame() is an experimental method for creating new JFrame
-     */
-    // void newFrame(JFrame jFrameName, JLabel jLabelName, String message) {
-    //     jFrameName = new JFrame();
-    //     centerFrame(jFrameName);
-    //     jFrameName.setSize(200, 100);
-    //     jLabelName = new JLabel(message, SwingConstants.CENTER);
-    //     jFrameName.add(jLabelName);
-
-    //     jFrameName.setVisible(true);
-    // }
-
-    /**
-     * Gets the numeric value
-     * 
-     * @return the numeric object value of the JComboBox
-     */
-    private int returnIntValue(JComboBox objectValue) {
-        int intValue = Integer.parseInt(objectValue.getSelectedItem().toString());
-        return intValue;
-    }
-
-    public static void main(final String... args) {
-        javax.swing.SwingUtilities.invokeLater(AgeCalculator::new);
     }
 }
 

@@ -15,6 +15,7 @@ public class App {
         Scanner scan = new Scanner(System.in);
         String userChoice = scan.next().toLowerCase();
         System.out.print("\n");
+        scan.close();
 
         switch (userChoice) {
             case "sunday":
