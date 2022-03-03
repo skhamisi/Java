@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-
+import java.awt.GridBagLayout;
 import java.awt.FlowLayout;
 
 public class AgeCalculator {
@@ -25,6 +25,8 @@ public class AgeCalculator {
     public AgeCalculator() {
 
         this.mainFrame = new JFrame("Calculate Age");
+        mainFrame.setLayout(new FlowLayout());
+        mainFrame.setPreferredSize(new Dimension(400, 110));
 
         this.mainPanel = new JPanel();
 
@@ -61,8 +63,8 @@ public class AgeCalculator {
         mainPanel.add(exitButton);
 
 
-        mainFrame.getContentPane().setLayout(new FlowLayout());
-        mainFrame.setPreferredSize(new Dimension(400, 110));
+        //mainFrame.getContentPane().setLayout(new GridBagLayout());
+        //mainFrame.setPreferredSize(new Dimension(400, 110));
         mainFrame.add(dayLabel);
         mainFrame.getContentPane().add(dayComboBox);
         mainFrame.add(monthLabel);
