@@ -26,9 +26,7 @@ public class JMenuBarDemo {
     private final JMenuItem displayDate, printLog, changeColor, exit;
     private final JPanel displayBox;
     private final Border blackline, loweredbevel;
-    static final LocalDateTime localDateTime = LocalDateTime.now();
     static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a");
-    static final String date = localDateTime.format(formattedDate);
     final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
     static final Random rand = new Random();
 
@@ -91,7 +89,7 @@ public class JMenuBarDemo {
     }
 
     private void showDate(JPanel panel) {
-
+        String date = LocalDateTime.now().format(formattedDate);
         JLabel showDate = new JLabel("" + date, SwingConstants.CENTER);
         showDate.setFont(new Font("Verdana",1,20));
         panel.add(showDate);
@@ -106,10 +104,15 @@ public class JMenuBarDemo {
             fw = new FileWriter(FILENAME);
             bw = new BufferedWriter(fw);
 
-            String data = panel.getComponents().toString();
-            bw.write(data);
-            
+            for (int i = 0; i < panel.getComponents().length; i++) {
+                
+                if (panel.getComponent(i) instanceof JLabel) {
+                    String panelText = ((JLabel) panel.getComponent(i)).getText();
+                    bw.write(panelText);
+                }
+            }
             bw.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -131,24 +134,43 @@ public class JMenuBarDemo {
         Color green2 = new Color(0, 102, 0);
         Color green3 = new Color(0, 201, 102);
 
-        Color[] colors = {green0, green1, green2, green3 };
-        int color = rand.nextInt(colors.length);
+        //ColorSpace green = Color.GREEN.getColorSpace();
 
-        switch (color) {
-            case 0:
+        //Color[] colors = {green0, green1, green2, green3};
+        Integer color = rand.nextInt(0, 3);
+
+        // switch (color) {
+        //     case 0:
+        //         frame.getContentPane().setBackground(green0);
+        //         frame.revalidate();
+        //     case 1:
+        //         frame.getContentPane().setBackground(green1);
+        //         frame.revalidate();
+        //     case 2:
+        //         frame.getContentPane().setBackground(green2);
+        //         frame.revalidate();
+        //     case 3:
+        //         frame.getContentPane().setBackground(green3);
+        //         frame.revalidate();
+        //     default:
+        //         break;
+        // }
+
+        if(color == 0) {
             frame.getContentPane().setBackground(green0);
             frame.revalidate();
-            case 1:
+        }
+        else if(color == 1) {
             frame.getContentPane().setBackground(green1);
             frame.revalidate();
-            case 2:
+        }
+        else if(color == 2) {
             frame.getContentPane().setBackground(green2);
             frame.revalidate();
-            case 3:
+        }
+        else if(color == 3) {
             frame.getContentPane().setBackground(green3);
             frame.revalidate();
-            default:
-                break;
         }
     }
 }
