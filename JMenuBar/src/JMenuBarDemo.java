@@ -1,20 +1,9 @@
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 import javax.swing.border.Border;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
-import java.awt.*;
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -27,7 +16,8 @@ public class JMenuBarDemo {
     private final JPanel displayBox;
     private final Border blackline, loweredbevel;
     static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a");
-    final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
+    //final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
+    final String FILENAME = "C:\\Users\\skham\\Documents\\log.txt";
     static final Random rand = new Random();
 
     public JMenuBarDemo() {
@@ -97,28 +87,26 @@ public class JMenuBarDemo {
     }
 
     private void saveDate(JPanel panel) {
-        BufferedWriter bw = null;
         FileWriter fw = null;
 
          try {
             fw = new FileWriter(FILENAME);
-            bw = new BufferedWriter(fw);
 
             for (int i = 0; i < panel.getComponents().length; i++) {
                 
                 if (panel.getComponent(i) instanceof JLabel) {
                     String panelText = ((JLabel) panel.getComponent(i)).getText();
-                    bw.write(panelText);
+                    fw.write(panelText);
                 }
             }
-            bw.close();
+            fw.close();
+            System.out.println("Successfully wrote to the file.");
 
         } catch (IOException e) {
+            System.out.println("An error occurred.");
             e.printStackTrace();
         } finally {
             try {
-                if (bw != null)
-                    bw.close();
                 if (fw != null)
                     fw.close();
             } catch (IOException ex) {
@@ -134,27 +122,7 @@ public class JMenuBarDemo {
         Color green2 = new Color(0, 102, 0);
         Color green3 = new Color(0, 201, 102);
 
-        //ColorSpace green = Color.GREEN.getColorSpace();
-
-        //Color[] colors = {green0, green1, green2, green3};
         Integer color = rand.nextInt(0, 3);
-
-        // switch (color) {
-        //     case 0:
-        //         frame.getContentPane().setBackground(green0);
-        //         frame.revalidate();
-        //     case 1:
-        //         frame.getContentPane().setBackground(green1);
-        //         frame.revalidate();
-        //     case 2:
-        //         frame.getContentPane().setBackground(green2);
-        //         frame.revalidate();
-        //     case 3:
-        //         frame.getContentPane().setBackground(green3);
-        //         frame.revalidate();
-        //     default:
-        //         break;
-        // }
 
         if(color == 0) {
             frame.getContentPane().setBackground(green0);
