@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -15,7 +17,7 @@ public class JMenuBarDemo {
     private final JMenuItem displayDate, printLog, changeColor, exit;
     private final JPanel displayBox;
     private final Border blackline, loweredbevel;
-    static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a");
+    static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a");
     //final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
     final String FILENAME = "C:\\Users\\skham\\Documents\\log.txt";
     static final Random rand = new Random();
@@ -24,20 +26,21 @@ public class JMenuBarDemo {
 
         //Creates the main display fram
         this.mainFrame = new JFrame("Menu Demo");
-        mainFrame.setLayout(new FlowLayout());
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        mainFrame.setLayout(new GridBagLayout());
         mainFrame.setPreferredSize(new Dimension(400, 200));
 
         //Creates the menu bar container that will hold the menu(s)
         this.menuBar = new JMenuBar();
-        menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
+        menuBar.setBackground(Color.BLUE);
         
         //Creates the menu container that will hold item(s)
         this.mainMenu = new JMenu("Main Menu");
-        mainMenu.getAccessibleContext().setAccessibleDescription(
-        "The only menu in this program that has menu items");
+        mainMenu.setForeground(Color.WHITE);
         menuBar.add(mainMenu);
 
         this.displayBox = new JPanel();
+        displayBox.setPreferredSize(new Dimension(300, 100));
         this.blackline = BorderFactory.createLineBorder(Color.BLACK);
         this.loweredbevel = BorderFactory.createLoweredBevelBorder();
         displayBox.setBorder(blackline);
@@ -67,8 +70,7 @@ public class JMenuBarDemo {
 
 
         mainFrame.setJMenuBar(menuBar);
-        mainFrame.add(displayBox, SwingConstants.CENTER);
-        displayBox.setPreferredSize(new Dimension(300, 100));
+        mainFrame.add(displayBox);
         mainFrame.pack();
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +82,7 @@ public class JMenuBarDemo {
 
     private void showDate(JPanel panel) {
         String date = LocalDateTime.now().format(formattedDate);
-        JLabel showDate = new JLabel("" + date, SwingConstants.CENTER);
+        JLabel showDate = new JLabel("" + date);
         showDate.setFont(new Font("Verdana",1,20));
         panel.add(showDate);
         panel.revalidate();
@@ -116,29 +118,13 @@ public class JMenuBarDemo {
     }
 
     private static void changeColor(JFrame frame) {
- 
-        Color green0 = new Color(9, 121, 105);
-        Color green1 = new Color(102, 255, 51);
-        Color green2 = new Color(0, 102, 0);
-        Color green3 = new Color(0, 201, 102);
 
-        Integer color = rand.nextInt(0, 3);
+        //Generates random int value between 100-255 (Approximate green values for RGB)
+        int g = rand.nextInt(100, 255);
+        // Creates new green hue
+        Color randomGreenHue = new Color(0, g, 0);
 
-        if(color == 0) {
-            frame.getContentPane().setBackground(green0);
-            frame.revalidate();
-        }
-        else if(color == 1) {
-            frame.getContentPane().setBackground(green1);
-            frame.revalidate();
-        }
-        else if(color == 2) {
-            frame.getContentPane().setBackground(green2);
-            frame.revalidate();
-        }
-        else if(color == 3) {
-            frame.getContentPane().setBackground(green3);
-            frame.revalidate();
-        }
+        frame.getContentPane().setBackground(randomGreenHue);
+        frame.revalidate();
     }
 }

@@ -1,17 +1,9 @@
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.time.LocalDate;
-import java.time.Month;
+import java.awt.*;
 import java.time.temporal.ChronoUnit;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import java.time.*;
+import javax.swing.*;
 import javax.swing.SwingConstants;
 import java.awt.GridBagLayout;
-import java.awt.FlowLayout;
 
 public class AgeCalculator {
 
