@@ -1,13 +1,10 @@
+import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class JMenuBarDemo {
 
@@ -20,6 +17,7 @@ public class JMenuBarDemo {
     static final DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a");
     //final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
     final String FILENAME = "C:\\Users\\skham\\Documents\\log.txt";
+    //final String FILENAME = "C:\\Users\\public\\log.txt";
     static final Random rand = new Random();
 
     public JMenuBarDemo() {

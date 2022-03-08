@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 class CheckingAccount extends BankAccount {
     static Random rn = new Random();
-    double interestRate;
     static int accountID = rn.nextInt(9999999) + 0;
     static Scanner scan = new Scanner(System.in);
 
+    //Subclass constructor, calls superclass constructor
     public CheckingAccount(String firstName, String lastName, int accountID, double balance) {
         super(firstName, lastName, accountID, balance);
     }
@@ -29,7 +29,7 @@ class CheckingAccount extends BankAccount {
         double interestEarned;
         double newBalance;
         double totalInterestEarned = 0;
-        double[] values = new double[3];
+        double[] interestValues = new double[3];
 
         if (balance > 0 && balance <= 10000) {
             apyTwo = 0;
@@ -53,10 +53,10 @@ class CheckingAccount extends BankAccount {
             apyTwo = 0;
         }
 
-        values[0] = totalInterestEarned;
-        values[1] = apy;
-        values[2] = apyTwo;
-        return values;
+        interestValues[0] = totalInterestEarned;
+        interestValues[1] = apy;
+        interestValues[2] = apyTwo;
+        return interestValues;
     }
 
     void DisplayAccount() {
