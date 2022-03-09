@@ -1,4 +1,4 @@
-public class Sphere extends Shape {
+final class Sphere extends Shape {
     
     private double radius;
     private double surfaceArea;
@@ -25,7 +25,7 @@ public class Sphere extends Shape {
 
     @Override
     double volume() {
-        volume = 3.0/4.0 * (pi * (radius * radius * radius));
+        volume = (4.0/3.0) * pi * (radius * radius * radius);
         return volume;
     }
 

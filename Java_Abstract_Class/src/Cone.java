@@ -1,4 +1,4 @@
-public class Cone extends Shape{
+final class Cone extends Shape{
     private double radius;
     private double height;
     private double surfaceArea;

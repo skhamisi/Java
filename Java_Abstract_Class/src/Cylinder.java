@@ -1,4 +1,4 @@
-public class Cylinder extends Shape{
+final class Cylinder extends Shape{
     private double radius;
     private double height;
     private double surfaceArea;
