@@ -81,7 +81,7 @@ public class JMenuBarDemo {
     private void showDate(JPanel panel) {
         String date = LocalDateTime.now().format(formattedDate);
         JLabel showDate = new JLabel("" + date);
-        showDate.setFont(new Font("Verdana",1,20));
+        showDate.setFont(new Font("Verdana", 1, 20));
         panel.add(showDate);
         panel.revalidate();
     }
@@ -96,7 +96,7 @@ public class JMenuBarDemo {
                 
                 if (panel.getComponent(i) instanceof JLabel) {
                     String panelText = ((JLabel) panel.getComponent(i)).getText();
-                    fw.write(panelText);
+                    fw.write(panelText + "\n\n");
                 }
             }
             fw.close();
