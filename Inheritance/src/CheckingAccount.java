@@ -6,7 +6,6 @@ class CheckingAccount extends BankAccount {
     static int accountID = rn.nextInt(9999999) + 0;
     static Scanner scan = new Scanner(System.in);
 
-    //Subclass constructor, calls superclass constructor
     public CheckingAccount(String firstName, String lastName, int accountID, double balance) {
         super(firstName, lastName, accountID, balance);
     }
