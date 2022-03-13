@@ -40,6 +40,9 @@ final class Cone extends Shape{
 
     @Override
     public String toString() {
-        return "Cone Surface Area is: " + String.format("%.2f", this.surfaceArea()) + " || " + "Cone Volume is: " + String.format("%.2f", this.volume());
+        return "Cone Surface Area is: " +
+         String.format("%.2f", this.surfaceArea()) +
+        " || " +
+        "Cone Volume is: " + String.format("%.2f", this.volume());
     }
 }

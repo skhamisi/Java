@@ -40,6 +40,8 @@ final class Cylinder extends Shape{
 
     @Override
     public String toString() {
-        return "Cylinder Surface Area is: " + String.format("%.2f", this.surfaceArea()) + " || " + "Cylinder Volume is: " + String.format("%.2f", this.volume());
+        return "Cylinder Surface Area is: " + String.format("%.2f", this.surfaceArea()) +
+        " || " +
+        "Cylinder Volume is: " + String.format("%.2f", this.volume());
     }
 }
