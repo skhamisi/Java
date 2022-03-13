@@ -12,7 +12,6 @@ final class Sphere extends Shape {
     double getRadius() {
         return radius;
     }
-
     void setRadius(double radius) {
         this.radius = radius;
     }

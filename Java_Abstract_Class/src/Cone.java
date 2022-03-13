@@ -1,4 +1,5 @@
-final class Cone extends Shape{
+final class Cone extends Shape { 
+    
     private double radius;
     private double height;
     private double surfaceArea;
@@ -13,7 +14,6 @@ final class Cone extends Shape{
     public double getRadius() {
         return radius;
     }
-
     public void setRadius(double radius) {
         this.radius = radius;
     }
@@ -21,7 +21,6 @@ final class Cone extends Shape{
     public double getHeight() {
         return height;
     }
-
     public void setHeight(double height) {
         this.height = height;
     }

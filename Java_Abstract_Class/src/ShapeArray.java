@@ -13,9 +13,9 @@ public class ShapeArray {
 
         System.out.print("\n");
 
-        Object[] shapeArray = {new Sphere(radius), new Cylinder(radius, height), new Cone(radius, height)};
+        Shape[] shapeArray = {new Sphere(radius), new Cylinder(radius, height), new Cone(radius, height)};
 
-        for (Object i : shapeArray) {
+        for (Shape i : shapeArray) {
             System.out.println(i + "\n");
         }
 
