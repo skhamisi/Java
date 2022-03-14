@@ -62,10 +62,13 @@ class CheckingAccount extends BankAccount {
 
         double[] values = CalculateInterest(); 
 
-        AccountSummary();
-        System.out.println("APY earned on balance below $10000: " + String.format("%.2f", values[1]) + "%");
-        System.out.println("APY earned on balance above $10000: " + String.format("%.2f", values[2]) + "%");
-        System.out.println("Interest Earned: $" + String.format("%.2f", values[0]));
+        super.AccountSummary();
+        System.out.printf("APY 1:             %15s\n", values[1] + "%");
+        System.out.printf("APY 2:             %15s\n", values[2] + "%");
+        System.out.printf("Interest Earned:   %15.2f\n", values[0]);
+        // System.out.println("APY earned on balance below $10000: " + String.format("%.2f", values[1]) + "%");
+        // System.out.println("APY earned on balance above $10000: " + String.format("%.2f", values[2]) + "%");
+        // System.out.println("Interest Earned: $" + String.format("%.2f", values[0]));
     }
 
     static CheckingAccount CreateAccount() {

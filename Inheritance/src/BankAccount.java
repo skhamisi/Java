@@ -48,9 +48,12 @@ class BankAccount {
     }
 
     void AccountSummary() {
-        System.out.println("\nAccount Summary\n===============\n" +
-        "Account ID: " + this.getAccountID() + "\n" +
-        "Name: " + this.getFirstName() + " " + this.getLastName() + "\n" +
-        "Balance: $" + String.format("%.2f",this.getBalance()));
+        System.out.println("\nAccount Summary\n===============");
+        // "Account ID: " + this.getAccountID() + "\n" +
+        // "Name: " + this.getFirstName() + " " + this.getLastName() + "\n" +
+        // "Balance: $" + String.format("%.2f",this.getBalance()));
+        System.out.printf("Account ID:        %15s\n", this.getAccountID());
+        System.out.printf("Name:              %15s\n", this.getFirstName() + " " + this.getLastName());
+        System.out.printf("Balance:           %15.2f\n", this.getBalance());
     }
 }

@@ -2,8 +2,6 @@ import java.awt.*;
 import java.time.temporal.ChronoUnit;
 import java.time.*;
 import javax.swing.*;
-import javax.swing.SwingConstants;
-import java.awt.GridBagLayout;
 
 public class AgeCalculator {
 
@@ -19,6 +17,8 @@ public class AgeCalculator {
         this.mainFrame = new JFrame("Calculate Age");
         mainFrame.setLayout(new FlowLayout());
         mainFrame.setPreferredSize(new Dimension(400, 110));
+        mainFrame.getContentPane().setBackground(Color.getHSBColor(75, 83, 32));
+        
 
         this.mainPanel = new JPanel();
 
@@ -55,8 +55,6 @@ public class AgeCalculator {
         mainPanel.add(exitButton);
 
 
-        //mainFrame.getContentPane().setLayout(new GridBagLayout());
-        //mainFrame.setPreferredSize(new Dimension(400, 110));
         mainFrame.add(dayLabel);
         mainFrame.getContentPane().add(dayComboBox);
         mainFrame.add(monthLabel);
@@ -75,7 +73,6 @@ public class AgeCalculator {
         mainFrame.setVisible(true);
     }
     
-
     private void centerFrame(JFrame frame) {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -107,17 +104,6 @@ public class AgeCalculator {
                 "You are " + years + " years"  + " old.",
                 "Age",
                 JOptionPane.INFORMATION_MESSAGE);
-
-        /**
-         * Accomplishes same as JOptionPane.showMessageDialog, but using a JFrame instead of a JOptionPane
-         */
-            // JFrame ageFrame = new JFrame();
-            // centerFrame(ageFrame);
-            // ageFrame.setSize(200, 100);
-            // JLabel showAge = new JLabel("You are " + years + " years"  + " old.", SwingConstants.CENTER);
-            // ageFrame.add(showAge);
-
-        // ageFrame.setVisible(true);
         }
     }
 }
