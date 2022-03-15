@@ -30,7 +30,7 @@ public class JMenuBarDemo {
 
         //Creates the menu bar container that will hold the menu(s)
         this.menuBar = new JMenuBar();
-        menuBar.setBackground(Color.BLUE);
+        menuBar.setBackground(Color.ORANGE);
         
         //Creates the menu container that will hold item(s)
         this.mainMenu = new JMenu("Main Menu");
