@@ -3,38 +3,25 @@ import java.util.Scanner;
 public class App {
 
     static Scanner scan = new Scanner(System.in);
-    static int i = 0;
-    static int[] product;
     public static void main(String[] args) throws Exception {
 
-        System.out.print("Enter 5 numbers, separated by a comma: ");
+        System.out.println("Enter 5 numbers: ");
 
-        String input = scan.next();
-        String[] p = input.split(",");
-        int[] nums = new int[p.length];
+        String input = scan.nextLine();
 
-        // for (i = 0; i < p.length; i++) {
-
-        //     nums[i] = Integer.parseInt(p[i]);
-        //     System.out.println(nums[i]);
-        // }
-
-        int[] finalProduct = recursiveProduct(nums);
-
-        for (int i: finalProduct) {
-            System.out.println(i);
-        }
-
+        int finalProduct = recursiveProduct(input, Character.getNumericValue(input.charAt(0)));
+        System.out.print(finalProduct);
     }
 
-    static int[] recursiveProduct(int[] userInput) {
+    static int recursiveProduct(String numString, int product) {
 
-        if (userInput.length > 0) {
+        if (numString.length() == 1) {
+            return product;
 
-            product[i] *= userInput[i];
-            i++;
-            recursiveProduct(new int[product.length - 1]);
+        } else {
+            int nextString = Character.getNumericValue(numString.charAt(1));
+            product *= nextString;
+            return recursiveProduct(numString.substring(1, numString.length()), product);
         }
-        return product;
     }
 }
