@@ -9,8 +9,9 @@ public class Main {
         System.out.print("Enter 5 numbers: ");
         String input = scan.nextLine();
 
-        String[] string = input.split(",");
+        String[] string = input.replaceAll("\\s", "").split(",");
         int[] nums = new int[string.length];
+
         for (int i = 0; i < string.length; i++) {
             nums[i] = Integer.parseInt(string[i]);
         }
