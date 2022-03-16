@@ -5,8 +5,9 @@ public class Main {
 
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
+        ClearScreen();
 
-        System.out.print("Enter 5 numbers: ");
+        System.out.print("Enter 5 comma separated numbers: ");
         String input = scan.nextLine();
 
         String[] string = input.replaceAll("\\s", "").split(",");
@@ -17,7 +18,7 @@ public class Main {
         }
 
         int finalProduct = recursiveProduct(nums, nums[0]);
-        System.out.print(finalProduct);
+        System.out.print("\n" + finalProduct);
     }
 
     static int recursiveProduct(int[] inputArray, int product) {
@@ -30,5 +31,11 @@ public class Main {
             product *= nextInt;
             return recursiveProduct(Arrays.copyOfRange(inputArray, 1, inputArray.length), product);
         }
+    }
+    
+    public static void ClearScreen() 
+    {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
 }
