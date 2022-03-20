@@ -37,6 +37,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.getName() + " " + this.getAddress() + " " + this.getGpa();
+        return "Name: " + this.getName() + "\n" +
+        "Address: " + this.getAddress() + "\n" +
+        "GPA: " + this.getGpa();
     }
 }
