@@ -17,35 +17,20 @@ public class Main {
             nums[i] = Integer.parseInt(string[i]);
         }
 
-        //int finalProduct = recursiveProduct(nums, nums[0]);
-        //System.out.print("\n" + finalProduct);
-
-        System.out.println("Sum via recursion is " + math(nums, 5));
+        int finalProduct = recursiveProduct(nums, nums[0]);
+        System.out.print("\n" + finalProduct);
     }
 
-    // static int recursiveProduct(int[] inputArray, int product) {
+    static int recursiveProduct(int[] inputArray, int product) {
 
-    //     if (inputArray.length == 1) {
-    //         return product;
+        if (inputArray.length == 1) {
+            return product;
 
-    //     } else {
-    //         int nextInt = inputArray[1];
-    //         product *= nextInt;
-    //         return recursiveProduct(Arrays.copyOfRange(inputArray, 1, inputArray.length), product);
-    //     }
-    // }
-
-    static int math(int [] numbers, int n) 
-    {
-       if (n == 1) 
-       {
-          System.out.println("Done!");
-          return 0;
-       } 
-       else 
-       {
-          return math(numbers, n - 1) * numbers[n - 1];
-       }
+        } else {
+            int nextInt = inputArray[1];
+            product *= nextInt;
+            return recursiveProduct(Arrays.copyOfRange(inputArray, 1, inputArray.length), product);
+        }
     }
     
     public static void ClearScreen() 
