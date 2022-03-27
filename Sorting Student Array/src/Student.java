@@ -2,20 +2,20 @@ public class Student {
 
     String name;
     String address;
-    double rollno;
+    int rollno;
     
-    public Student(double rollno, String name, String address){
+    public Student(int rollno, String name, String address) {
 
         this.rollno = rollno;
         this.name = name;
         this.address = address;
     }
 
-    public double getRollNo() {
+    public int getRollNo() {
         return rollno;
     }
 
-    public void setRollNo(double rollno) {
+    public void setRollNo(int rollno) {
         this.rollno = rollno;
     }
 
