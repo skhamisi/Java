@@ -1,10 +1,10 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Util {
     static Scanner scan = new Scanner(System.in);
-    static LinkedList<Student> students = new LinkedList<Student>();
+    static ArrayList<Student> students = new ArrayList<Student>();
 
     static void addStudent() {
         Random rand = new Random();
@@ -45,8 +45,7 @@ public class Util {
             System.out.println("STUDENT INVENTORY");
             System.out.println("=======================*");
             System.out.println("1. Add Student Info    |");
-            System.out.println("2. Add Student Info    |");
-            System.out.println("3. Exit                |");
+            System.out.println("2. Exit                |");
             System.out.println("=======================*\n");
 
             System.out.print("\nENTER CHOICE: ");
@@ -65,10 +64,6 @@ public class Util {
                 addStudent();
                 break;
             case 2:
-            ClearScreen();
-                addStudent();
-                break;
-            case 3:
                 ClearScreen();
                 System.out.println("Goodbye.\n");
                 scan.close();
