@@ -28,6 +28,18 @@ public class Util {
         //Collections.sort(students);
     }
 
+    static void sort() {
+
+        Node sortedStudent = null;
+
+        for (Student key: students) {
+            sortedStudent = new Node(key, sortedStudent);
+        }
+ 
+        // sort the list
+        sortedStudent = Sort.mergesort(sortedStudent);
+    }
+
     static void printStudent() {
         for (Student i: students) {
             System.out.println("\n" + i.toString() + "\n");
