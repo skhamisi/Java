@@ -15,7 +15,7 @@ public class Util {
         String name = scan.next();
         System.out.print("Please enter your address: ");
         String address = scan.next();
-        Integer rollno = rand.nextInt(1, 10);
+        Integer rollno = rand.nextInt(1, 999);
         Student newStudent = new Student(rollno, name, address);
         students.add(newStudent);
     }
