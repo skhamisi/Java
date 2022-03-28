@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,6 +7,7 @@ public class Util {
     static ArrayList<Student> students = new ArrayList<Student>();
 
     static void addStudent() {
+
         Random rand = new Random();
         scan.useDelimiter("\r?\n");
 
@@ -22,7 +22,7 @@ public class Util {
 
 
     static void printStudent() {
-        
+
         Sort.mergeSort(students);
 
         for (Student i: students) {
@@ -31,6 +31,7 @@ public class Util {
     }
 
     static void PrintMenu() {
+
         do {
             
             ClearScreen();
@@ -68,8 +69,8 @@ public class Util {
         }
     }
 
-    public static void ClearScreen() 
-    {  
+    public static void ClearScreen() {  
+        
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
