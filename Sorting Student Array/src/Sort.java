@@ -1,14 +1,13 @@
-import java.util.Hashtable;
 
 public class Sort {
     
-    static void mergeSort(Hashtable table) {
+    // static void mergeSort(Student array) {
 
-        if() {
+    //     if() {
 
             
-        }
+    //     }
         
 
-    }
+    // }
 }

@@ -1,21 +1,21 @@
-public class Student {
+public class Student implements Comparable<Student>{
 
-    String name;
-    String address;
-    int rollno;
+    protected String name;
+    protected String address;
+    protected Integer rollno;
     
-    public Student(int rollno, String name, String address) {
+    public Student(Integer rollno, String name, String address) {
 
         this.rollno = rollno;
         this.name = name;
         this.address = address;
     }
 
-    public int getRollNo() {
+    public Integer getRollNo() {
         return rollno;
     }
 
-    public void setRollNo(int rollno) {
+    public void setRollNo(Integer rollno) {
         this.rollno = rollno;
     }
 
@@ -40,5 +40,10 @@ public class Student {
         return "Name: " + this.getName() + "\n" +
         "Address: " + this.getAddress() + "\n" +
         "Roll Number: " + this.getRollNo();
+    }
+
+    @Override
+    public int compareTo(Student s) {
+        return this.getRollNo().compareTo(s.getRollNo());
     }
 }
