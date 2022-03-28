@@ -11,7 +11,7 @@ public class Util {
         Random rand = new Random();
         scan.useDelimiter("\r?\n");
 
-        System.out.print("Please enter your name: ");
+        System.out.print("Please enter your name (Last, First): ");
         String name = scan.next();
         System.out.print("Please enter your address: ");
         String address = scan.next();
@@ -22,7 +22,8 @@ public class Util {
 
 
     static void printStudent() {
-        Collections.sort(students);
+        
+        Sort.mergeSort(students);
 
         for (Student i: students) {
             System.out.println("\n" + i.toString() + "\n");
