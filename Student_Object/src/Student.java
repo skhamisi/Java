@@ -1,4 +1,4 @@
-public class Student {
+public class Student implements Comparable {
 
     String name;
     String address;
@@ -40,5 +40,11 @@ public class Student {
         return "Name: " + this.getName() + "\n" +
         "Address: " + this.getAddress() + "\n" +
         "GPA: " + this.getGpa();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }
