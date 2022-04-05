@@ -1,23 +1,19 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Util {
 
     static Scanner scan = new Scanner(System.in);
     static LinkedList<Student> students = new LinkedList<Student>();
-    static final String FILENAME = "C:\\Users\\skham\\Documents\\log.txt";
+    static final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
     //final String FILENAME = "C:\\Users\\public\\log.txt";
 
     static void addStudent() {
         scan.useDelimiter("\r?\n");
 
-        System.out.print("Please enter your name: ");
+        System.out.print("Please enter your name as Last, First: ");
         String name = scan.next();
         System.out.print("Please enter your address: ");
         String address = scan.next();
@@ -26,19 +22,6 @@ public class Util {
         Student newStudent = new Student(name, address, gpa);
         students.add(newStudent);
 
-        //Sort Linked list in asscending order
-        sort(students);
-    }
-
-    static void sort(Student students) {
-
-        Collections.sort(students, new Comparator<>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                return o2.name.compareTo(o1.name);
-            }
-        });
-        
     }
 
     static void printStudent() {
@@ -55,6 +38,8 @@ public class Util {
 
             String fileContent = "STUDENT INFO----------------\n";
             fw.write(fileContent);
+
+            Sort.mergeSort(students);
 
             for (Student i: students) {
                 fw.write("\n" + i.toString() + "\n");
@@ -105,7 +90,7 @@ public class Util {
             case 2:
                 ClearScreen();
                 Util.saveData();
-                System.out.println("Goodbye.\n");
+                System.out.println("\nGoodbye.\n");
                 Util.scan.close();
                 System.exit(0);
                 break;

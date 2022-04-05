@@ -1,4 +1,4 @@
-public class Student implements Comparable {
+public class Student implements Comparable<Student>{
 
     String name;
     String address;
@@ -43,8 +43,7 @@ public class Student implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int compareTo(Student s) {
+        return this.getName().compareTo(s.getName());
     }
 }
