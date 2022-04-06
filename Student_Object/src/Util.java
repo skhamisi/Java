@@ -7,8 +7,7 @@ public class Util {
 
     static Scanner scan = new Scanner(System.in);
     static LinkedList<Student> students = new LinkedList<Student>();
-    static final String FILENAME = "C:\\Users\\Samer\\Desktop\\log.txt";
-    //final String FILENAME = "C:\\Users\\public\\log.txt";
+    static final String FILENAME = "C:\\Users\\public\\log.txt";
 
     static void addStudent() {
         scan.useDelimiter("\r?\n");
