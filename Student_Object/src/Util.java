@@ -17,9 +17,23 @@ public class Util {
         System.out.print("Please enter your address: ");
         String address = scan.next();
         System.out.print("Please enter your GPA: ");
-        double gpa = scan.nextDouble();
-        Student newStudent = new Student(name, address, gpa);
-        students.add(newStudent);
+        String input = scan.next();
+
+        do {
+            if (CheckForNumericInput(input)) {
+                double gpa = Double.parseDouble(input);
+                Student newStudent = new Student(name, address, gpa);
+                students.add(newStudent);
+            } else {
+                System.out.println("Please enter a valid number");
+                input = scan.next();
+                CheckForNumericInput(input);
+            }
+        } while (!CheckForNumericInput(input));
+
+        //double gpa = scan.nextDouble();
+        //Student newStudent = new Student(name, address, gpa);
+        //students.add(newStudent);
 
     }
 
@@ -98,8 +112,31 @@ public class Util {
         }
     }
 
-    public static void ClearScreen() 
-    {  
+    static boolean CheckForNumericInput(String input) {
+
+        // try {
+        //     // check if it can be parsed as any double
+        //     double num = Double.valueOf(input);
+        //     // check if the double can be converted without loss to an int
+        //     if (num == (int) num)
+        //         // if yes, this is an int, thus return false
+        //         return false;
+        //     // otherwise, this cannot be converted to an int (e.g. "1.2")
+        //     return true;
+        //     // short version: return x != (int) x;
+        // } catch(NumberFormatException e) {
+        //     return false;
+        // }
+
+        try {
+            Double.parseDouble(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    } 
+
+    public static void ClearScreen() {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
