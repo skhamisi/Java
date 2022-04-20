@@ -27,13 +27,13 @@ final class Cone extends Shape {
 
     @Override
     double surfaceArea() {
-        surfaceArea = pi * radius * (radius + Math.sqrt((height * height) + (radius * radius)));
+        surfaceArea = pi * radius * (radius + Math.sqrt((height * height) + Math.pow(radius, 2)));
         return surfaceArea;
     }
 
     @Override
     double volume() {
-        volume = pi * (radius * radius) * (height / 3.0);
+        volume = pi * Math.pow(radius, 2) * (height / 3.0);
         return volume;
     }
 

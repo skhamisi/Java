@@ -18,13 +18,13 @@ final class Sphere extends Shape {
 
     @Override
     double surfaceArea() {
-        surfaceArea = 4.0 * pi * (radius * radius);
+        surfaceArea = 4.0 * pi * Math.pow(radius, 2);
         return surfaceArea;
     }
 
     @Override
     double volume() {
-        volume = (4.0/3.0) * pi * (radius * radius * radius);
+        volume = (4.0/3.0) * pi * Math.pow(radius, 3);
         return volume;
     }
 

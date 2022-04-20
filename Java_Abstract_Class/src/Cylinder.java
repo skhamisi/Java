@@ -27,13 +27,13 @@ final class Cylinder extends Shape {
 
     @Override
     double surfaceArea() {
-        surfaceArea = (2.0 * pi * radius * height) + (2.0 * pi * (radius * radius));
+        surfaceArea = (2.0 * pi * radius * height) + (2.0 * pi * Math.pow(radius, 2));
         return surfaceArea;
     }
 
     @Override
     double volume() {
-        volume = height * pi * (radius * radius);
+        volume = height * pi * Math.pow(radius, 2);
         return volume;
     }
 
