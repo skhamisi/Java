@@ -1,9 +1,5 @@
 final class Cylinder extends Shape {
 
-    private double radius;
-    private double height;
-    private double surfaceArea;
-    private double volume;
     private final double pi = Math.PI;
 
     public Cylinder(double radius, double height) {
@@ -25,13 +21,12 @@ final class Cylinder extends Shape {
         this.height = height;
     }
 
-    @Override
+   
     double surfaceArea() {
         surfaceArea = (2.0 * pi * radius * height) + (2.0 * pi * Math.pow(radius, 2));
         return surfaceArea;
     }
-
-    @Override
+    
     double volume() {
         volume = height * pi * Math.pow(radius, 2);
         return volume;

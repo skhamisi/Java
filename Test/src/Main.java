@@ -1,7 +1,7 @@
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 
-public class App {
+public class Main {
     public static void main(String[] args) throws Exception {
         
         // Creates Multiset
@@ -18,7 +18,7 @@ public class App {
         AutoInventory.add("Titan");
 
         // Returns total size of Multiset
-        System.out.println("TOTAL VEHICLES IN STOCK: " + AutoInventory.size() + "\n--------------------------\n");
+        System.out.println("TOTAL VEHICLES IN STOCK: " + AutoInventory.size() + "\n--------------------------");
   
         // print the occurrence of each element
         System.out.printf("Toyota Tundra:           %15s\n", AutoInventory.count("Tundra"));

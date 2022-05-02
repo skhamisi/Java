@@ -122,7 +122,7 @@ public class JMenuBarDemo {
         // Creates new green hue
         Color randomGreenHue = new Color(0, g, 0);
 
-        frame.getContentPane().setBackground(randomGreenHue);
+        //frame.getContentPane().setBackground(randomGreenHue);
         frame.revalidate();
     }
 }

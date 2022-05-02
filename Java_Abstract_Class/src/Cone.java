@@ -1,9 +1,5 @@
 final class Cone extends Shape { 
     
-    private double radius;
-    private double height;
-    private double surfaceArea;
-    private double volume;
     private final double pi = Math.PI;
 
     public Cone(double radius, double height) {
@@ -25,13 +21,11 @@ final class Cone extends Shape {
         this.height = height;
     }
 
-    @Override
     double surfaceArea() {
         surfaceArea = pi * radius * (radius + Math.sqrt((height * height) + Math.pow(radius, 2)));
         return surfaceArea;
     }
 
-    @Override
     double volume() {
         volume = pi * Math.pow(radius, 2) * (height / 3.0);
         return volume;
