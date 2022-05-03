@@ -55,19 +55,14 @@ public class Game {
         }
           
         for (int i = 0; i < 9; i++) {
+            // Checks to see if there are any spaces left for marker placement
             if (Arrays.asList(board).contains(String.valueOf(i + 1))) {
                 break;
             }
+            // If there are no spaces and no winners, returns draw
             else if (i == 8) {
                 return "draw";
             }
-        }
-  
-       // Change player color
-       if(turn.equalsIgnoreCase("x")) {
-           System.out.print(Util.GREEN);
-        } else {
-           System.out.print(Util.RED);
         }
 
         // To enter X Or O on the board.
