@@ -1,243 +1,68 @@
-/* import org.w3c.dom.Node;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Bag<E extends Comparable<E>> {
+public class Bag<T> {
+    private final Map<T, Integer> itemsCount;
 
-    private Node<E> root;
-
-    public Bag()
-    {
-        root = null;
+    public Bag() {
+        itemsCount = new HashMap<>();
     }
 
-    public Bag(Node newNode)
-    {
-        root = newNode;
+    // Add an item to the bag
+    public void add(T item) {
+        itemsCount.put(item, itemsCount.getOrDefault(item, 0) + 1);
     }
 
-    public  void add(E data)
-    {
-        if (isEmpty())
-        {
-            Node<E> newNode = new Node<E>(data);
-            root = newNode;
-        }
-
-        else
-        {
-            Node<E> current = root;
-            while (true)
-            {
-                if (data.compareTo(current.getData()) < 0 )
-                {
-                    if (current.getLeft() != null)
-                    {
-                        current=current.getLeft();
-                    }
-                    else
-                    {
-                        Node<E> newNode = new Node<E>(data);
-                        current.setLeft(newNode);
-                        break;
-                    }
-                }
-                else if(data.compareTo(current.getData()) > 0)
-                {
-                    if (current.getRight() != null)
-                    {
-                        current=current.getRight();
-                    }
-                    else
-                    {
-                        Node<E> newNode = new Node<E>(data);
-                        current.setRight(newNode);
-                        break;
-                    }
-                }
-                else if(data.compareTo(current.getData()) == 0)
-                {
-                    current.incrementCount();
-                    break;
-                }
-            }
+    // Remove an item if it exists
+    public void remove(T item) {
+        int count = itemsCount.getOrDefault(item, 0);
+        if (count > 0) {
+            itemsCount.put(item, count - 1);
         }
     }
 
-    public boolean remove(E data) {
-        if (!contains(data)) {
-            System.out.println("Unable to remove the number " + data + " from the Bag.");
-            System.out.println("The number " + data + " was not found in the Bag.");
-            return false;
-        }
-        else {
-            Node<E> temp = remove(root, data);
-            if (contains(temp.getData())) {
-                return true;
-            } else
-                return false;
-        }
+    // Check if the item exists in the bag
+    public boolean contains(T item) {
+        return itemsCount.containsKey(item) && itemsCount.get(item) > 0;
     }
 
-    private Node<E> remove(Node<E> root,E data) {
-        Node<E> current = root;
-            if (current == null) {
-                return current;
-            }
-            if (data.compareTo(current.getData()) < 0) {
-                 current.setLeft(remove(current.getLeft(), data));
-            }
-            else if (data.compareTo(current.getData()) > 0) {
-                current.setRight( remove(current.getRight(), data));
-            }
-            else {
-                if (current.getCount() > 1) {
-                    current.decreaseCount();
-                    return current;
-                }
-                else {
-                    if (current.getLeft() != null && current.getRight() != null ) {
-                        Node<E> MinFromRightSubTree=findMinFromRight(current.getRight());
-                        current.setData(MinFromRightSubTree.getData());
-                        remove(current.getRight(),MinFromRightSubTree.getData());
-                    }
-                    else if (current.getLeft() != null ) {
-                        current=current.getLeft();
-                    }
-                      else if (current.getRight() != null ) {
-                           current=current.getRight();
-                     }
-                     else
-                    {
-                        current = null;
-                    }
-                }
-            }
-            return current;
+    // Count of a specific item in the bag
+    public int count(T item) {
+        return itemsCount.getOrDefault(item, 0);
     }
 
-    private Node<E> findMinFromRight(Node<E> node) {
-        while(node.getLeft() != null)
-        {
-            node=node.getLeft();
-        }
-        return node;
-    }
-
-
-    public boolean contains(E data)
-    {
-        Node<E> current = root;
-        boolean found = true;
-        while (found) 
-        {
-            if (data.compareTo(current.getData()) < 0) {
-                if (current.getLeft() != null) {
-                    current = current.getLeft();
-                }
-                else break;
-            }
-
-            if (data.compareTo(current.getData()) > 0) 
-            {
-                if (current.getRight() != null) 
-                {
-                    current = current.getRight();
-                }
-                else break;
-            }
-            if (data.compareTo(current.getData()) == 0) 
-            {
-               found = false;
-            }
-        }
-        return !found;
-    }
-
-    public boolean isEmpty()
-    {
-        if (root == null)
-        {
-            return true;
-        } 
-        else
-        {
-            return false;
+    // Print bag contents
+    public void printContents() {
+        for (Map.Entry<T, Integer> entry : itemsCount.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
 
-    public void clear()
-    {
-        root = null;
-    }
-
-    public int distictNumbers() {
-        return (distictNumbers(root));
-    }
-
-    private int distictNumbers(Node<E> node)
-    {
-        if (node == null) {
-            return(0);
+    // Calculate total number of elements in the bag
+    public int size() {
+        int totalSize = 0;
+        for (int count : itemsCount.values()) {
+            totalSize += count;
         }
-        else {
-            return (distictNumbers(node.getLeft()) + 1 + distictNumbers(node.getRight()));
-        }
+        return totalSize;
     }
 
-    public int size()
-    {
-        return size(root);
-    }
-
-    private int size(Node<E> node) {
-        int size = 0;
-        if (node == null) {
-            return(0);
-        }
-        else {
-        return node.getCount() + size(node.getLeft()) + size(node.getRight());
+    // Merge elements from another bag
+    public void merge(Bag<T> otherBag) {
+        for (Map.Entry<T, Integer> entry : otherBag.itemsCount.entrySet()) {
+            T item = entry.getKey();
+            int count = entry.getValue();
+            itemsCount.put(item, itemsCount.getOrDefault(item, 0) + count);
         }
     }
 
-
-    public static void printInorder(Bag bag)
-    {
-        if (bag.root == null)
-            return;
-        else{
-            if(bag.root.hasLeft())
-                printInorder(new Bag(bag.root.getLeft()));
-
-                System.out.print("\n[" + bag.root.getData() + "] ");
-
-            if(bag.root.hasRight())
-                printInorder(new Bag(bag.root.getRight()));
+    // Create a new bag containing only distinct elements from this bag
+    public Bag<T> distinct() {
+        Bag<T> distinctBag = new Bag<>();
+        for (Map.Entry<T, Integer> entry : itemsCount.entrySet()) {
+            T item = entry.getKey();
+            distinctBag.add(item);
         }
-        
-    }
-
-    public String toString()
-    {
-       return toString(root);
-    }
-
-    private String toString(Node<E> root) {
-        if(isEmpty())
-        {
-            return "The Bag is currently empty";
-        }
-       else 
-       {
-            Node<E> current = root;
-            String result = "";
-            if (current == null) {
-                return "";
-            }
-            result += toString(current.getLeft());
-            result += "\n[" + current.getData().toString() + ": " + current.getCount() + "]";
-            result += toString(current.getRight());
-
-            return result;
-        }   
+        return distinctBag;
     }
 }
- */

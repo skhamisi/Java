@@ -9,6 +9,7 @@ public class Sort {
             }
     
             if (toSort.size() > 1) {
+                // Finds the middle of the list
                 int mid = toSort.size() / 2;
     
                 // split left half
@@ -33,7 +34,8 @@ public class Sort {
     
                 // merge left and right lists
                 while (i < left.size() && j < right.size()) {
-
+                    
+                    //Returns negative for less than; zero for equal; positive for greater than
                     if (left.get(i).compareTo(right.get(j)) == -1) {
                         toSort.set(k, left.get(i));
                         i++;

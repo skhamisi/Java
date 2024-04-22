@@ -11,7 +11,7 @@ public class App {
         scan.close();
     }
 
-    public static void LetterGrade(int input){
+    public static void LetterGrade(int input) {
         // Ternary checks to see if value is above 100
         input = input > 100 ? 100 : input;
         // Divides entered value by 10 in order to route to proper case output

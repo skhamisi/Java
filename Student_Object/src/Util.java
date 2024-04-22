@@ -7,7 +7,7 @@ public class Util {
 
     static Scanner scan = new Scanner(System.in);
     static LinkedList<Student> students = new LinkedList<Student>();
-    static final String FILENAME = "C:\\Users\\public\\log.txt";
+    static final String FILENAME = "C:\\Users\\public\\student_data.txt";
 
     static void addStudent() {
         scan.useDelimiter("\r?\n");
@@ -36,9 +36,8 @@ public class Util {
     }
 
     static void printStudent() {
-        for (Student i: students) {
-            System.out.println("\n" + i.toString() + "\n");
-        }
+
+        students.forEach( (i) -> { System.out.println("\n" + i.toString() + "\n"); } );
     }
 
     static void saveData() {
@@ -47,7 +46,7 @@ public class Util {
          try {
             fw = new FileWriter(FILENAME);
 
-            String fileContent = "STUDENT LOG\n-----------\n";
+            String fileContent = "STUDENT DATA\n-----------\n";
             fw.write(fileContent);
 
             Sort.mergeSort(students);

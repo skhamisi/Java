@@ -10,6 +10,7 @@ public class AutoMobile {
 
     // AutoMobile Object Constructor
     public AutoMobile(String make, String model, String color, int year, int mileage, int id) {
+        super();
         this.make = make;
         this.model = model;
         this.color = color;
@@ -17,7 +18,7 @@ public class AutoMobile {
         this.mileage = mileage;
         this.id = id;
     }
-    
+
     public String GetMake() {
         return make;
     }

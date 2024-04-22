@@ -42,7 +42,7 @@ public class Util {
                 Game.gameInit();
                 break;
             case 2:
-                System.out.println(Util.RESET + Util.CYAN + "\nThank you for using the vehicle management system. Goodbye.\n" + Util.RESET);
+                System.out.println(Util.RESET + Util.CYAN + "\nThank for playing. Goodbye.\n" + Util.RESET);
                 Util.scan.close();
                 System.exit(0);
                 break;
@@ -54,7 +54,7 @@ public class Util {
     
     static void PrintHeader() {
         clearScreen();
-        System.out.println(CYAN_Bold_Underline + "VEHICLE INVENTORY MANAGEMENT SYSTEM" + RESET);
+        System.out.println(CYAN_Bold_Underline + "TIC TAC TOE" + RESET);
         System.out.println(CYAN + "CURRENT TIME: "  + date + "\n\n" + RESET);
     }
 
