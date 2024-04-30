@@ -16,7 +16,7 @@ public class PostfixCalculator {
                 stack.push(Integer.parseInt(token));
             } else if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/") || token.equals("%")) {
                 if (stack.size() < 2) {
-                    System.out.println("Error: Invalid expression.");
+                    System.out.println("Error: Invalid postfix expression.");
                     return 0;
                 }
 
@@ -72,7 +72,6 @@ public class PostfixCalculator {
     }
 
     public static void main(String[] args) {
-        // Sample usage
         String expression1 = "32 5 * 10 +";
         String expression2 = "5 2 + 10 *";
         String expression3 = "5 0 /"; // Division by zero, should display an error message
