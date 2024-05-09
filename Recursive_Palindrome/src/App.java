@@ -17,7 +17,7 @@ public class App {
         String string = scan.next(); // Takes in string value from user
 
         if (isPalindrome(string.toLowerCase()))
-            System.out.println(string + " is a palindrome"); // If returned value it true, tells user their word is a palindrome
+            System.out.println(string + " is a palindrome"); // If returned value is true, tells user their word is a palindrome
         else
             System.out.println(string + " is not a palindrome"); // If returned value is false, tells user their word is not a palindrome
         scan.close();

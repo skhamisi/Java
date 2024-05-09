@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Stack;
 
 public class PostfixCalculator {
@@ -72,6 +74,8 @@ public class PostfixCalculator {
     }
 
     public static void main(String[] args) {
+
+        // Hardcoded values to test program
         String expression1 = "32 5 * 10 +";
         String expression2 = "5 2 + 10 *";
         String expression3 = "5 0 /"; // Division by zero, should display an error message
@@ -81,5 +85,19 @@ public class PostfixCalculator {
         System.out.println("Result of " + expression2 + ": " + evaluatePostfix(expression2));
         System.out.println("Result of " + expression3 + ": " + evaluatePostfix(expression3));
         System.out.println("Result of " + expression4 + ": " + evaluatePostfix(expression4));
+
+        // Takes in text file to test program
+        String fileName = "expressions.txt"; // Example txt fiel, replace with your file name before running program
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println("Result of " + line + ": " + evaluatePostfix(line.trim()));
+            }
+        } catch (Exception e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
     }
 }
