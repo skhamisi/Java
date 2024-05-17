@@ -104,7 +104,6 @@ public class CustomLinkedList {
   public static void main(String[] args) {
     CustomLinkedList linkedList = new CustomLinkedList();
 
-    // Insert some elements
     linkedList.insert(1);
     linkedList.insert(2);
     linkedList.insert(3);
