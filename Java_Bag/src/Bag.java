@@ -38,14 +38,25 @@ public class Bag<T> {
         }
     }
 
+    /* 
+     * The current implementation of size() iterates through all values in itemsCount and adds them up. 
+     * This can be inefficient for large bags. 
+     * HashMap keeps track of its size internally, we can then use stream() to calculate the number of elements in the map
+    */
+
     // Calculate total number of elements in the bag
+    // public int size() {
+    //     int totalSize = 0;
+    //     for (int count : itemsCount.values()) {
+    //         totalSize += count;
+    //     }
+    //     return totalSize;
+    // }
+
+    // Optimized implementation of size() method
     public int size() {
-        int totalSize = 0;
-        for (int count : itemsCount.values()) {
-            totalSize += count;
-        }
-        return totalSize;
-    }
+        return itemsCount.values().stream().mapToInt(Integer::intValue).sum();
+      }
 
     // Merge elements from another bag
     public void merge(Bag<T> otherBag) {
@@ -64,5 +75,42 @@ public class Bag<T> {
             distinctBag.add(item);
         }
         return distinctBag;
+    }
+
+    public static void main(String[] args) {
+        Bag<Integer> bag1 = new Bag<>();
+        Bag<Integer> bag2 = new Bag<>();
+
+        // Add elements to each bag
+        bag1.add(10);
+        bag1.add(10);
+        bag1.add(5);
+        bag1.add(20);
+
+        bag2.add(10);
+        bag2.add(15);
+        bag2.add(20);
+        bag2.add(20);
+        bag2.add(46);
+        bag2.add(88);
+        bag2.add(100);
+
+        // Print the size of each bag
+        System.out.println("Size of bag1: " + bag1.size());
+        System.out.println("Size of bag2: " + bag2.size());
+
+        // Merge bag1 and bag2
+        bag1.merge(bag2);
+
+        // Print merged bag contents
+        System.out.println("Merged Bag Contents:");
+        bag1.printContents();
+
+        // New bag with only distinct elements
+        Bag<Integer> distinctBag = bag1.distinct();
+
+        // Print distinct bag contents
+        System.out.println("Distinct Bag Contents:");
+        distinctBag.printContents();
     }
 }

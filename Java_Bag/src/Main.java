@@ -14,6 +14,9 @@ public class Main {
         bag2.add(15);
         bag2.add(20);
         bag2.add(20);
+        bag2.add(46);
+        bag2.add(88);
+        bag2.add(100);
 
         // Print the size of each bag
         System.out.println("Size of bag1: " + bag1.size());

@@ -6,7 +6,7 @@ public class Recursion {
     public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Verify Palindrome: ");
+        System.out.print("Enter a word or number: ");
         String word = scan.next();
 
         if(isPalindrome(word.toLowerCase()))
