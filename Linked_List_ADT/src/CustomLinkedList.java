@@ -73,7 +73,7 @@ public class CustomLinkedList {
 
     while (scanner.hasNextInt()) {
       int data = scanner.nextInt();
-      insert(data); // Insert data into the linked list
+      insert(data);
     }
 
     scanner.close();
@@ -99,13 +99,13 @@ public class CustomLinkedList {
     }
   }
 
-  // Private iterator class to implement the Iterator interface for custom iteration
+  // Iterator class to implement the Iterator interface
   private class LinkedListIterator implements Iterator<Integer> {
     private Node current = head;
 
     @Override
     public boolean hasNext() {
-      // Check if the current node is not null (i.e., not at the end)
+      // Check if the current node is not null
       return current != null;
     }
 
