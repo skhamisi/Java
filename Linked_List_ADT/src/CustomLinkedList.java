@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class CustomLinkedList {
 
@@ -59,6 +62,24 @@ public class CustomLinkedList {
   }
 
   /**
+   * Reads integer data from a text file and populates the linked list.
+   *
+   * @param filename The path to the text file containing integer data (one per line).
+   * @throws FileNotFoundException If the file is not found.
+   */
+  public void readFile(String filename) throws FileNotFoundException {
+    File file = new File(filename);
+    Scanner scanner = new Scanner(file);
+
+    while (scanner.hasNextInt()) {
+      int data = scanner.nextInt();
+      insert(data); // Insert data into the linked list
+    }
+
+    scanner.close();
+  }
+
+  /**
    * Returns an iterator object that can be used to iterate through the linked list.
    *
    * @return An iterator object for the linked list.
@@ -103,24 +124,33 @@ public class CustomLinkedList {
 
   public static void main(String[] args) {
     CustomLinkedList linkedList = new CustomLinkedList();
-
-    linkedList.insert(1);
-    linkedList.insert(2);
-    linkedList.insert(3);
-
-    // Iterate and display elements using the custom iterator
+  
+    try {
+      linkedList.readFile("data.txt"); // Replace "data.txt" with your actual file name
+    } catch (FileNotFoundException e) {
+      System.out.println("Error: File not found!");
+      return;
+    }
+  
     Iterator<Integer> iterator = linkedList.iterator();
     while (iterator.hasNext()) {
       System.out.print(iterator.next() + " ");
     }
     System.out.println();
 
-    // Delete an element and iterate again
-    linkedList.delete(2);
-    iterator = linkedList.iterator();
-    while (iterator.hasNext()) {
-      System.out.print(iterator.next() + " ");
+    // Test without reading from file
+    CustomLinkedList secondLinkedList = new CustomLinkedList();
+
+      // Insert some elements
+      linkedList.insert(1);
+      linkedList.insert(2);
+      linkedList.insert(3);
+
+      // Iterate and display elements
+      Iterator<Integer> secondIterator = secondLinkedList.iterator();
+
+      while (secondIterator.hasNext()) {
+        System.out.print(secondIterator.next() + " ");
     }
-    System.out.println();
   }
 }
