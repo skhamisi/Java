@@ -128,10 +128,10 @@ public class CustomLinkedList {
 
     // Test reading integer from txt file
     try {
+      System.out.println("Reading integers from text file");
       linkedList.readFile("data.txt"); // Replace "data.txt" with your actual file name
     } catch (FileNotFoundException e) {
       System.out.println("Error: File not found!");
-      return;
     }
   
     Iterator<Integer> iterator = linkedList.iterator();
@@ -150,6 +150,7 @@ public class CustomLinkedList {
 
       // Iterate and display elements
       Iterator<Integer> secondIterator = secondLinkedList.iterator();
+      System.out.println("\nReading integers without text file");
 
       while (secondIterator.hasNext()) {
         System.out.print(secondIterator.next() + " ");
