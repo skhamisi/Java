@@ -123,8 +123,10 @@ public class CustomLinkedList {
   }
 
   public static void main(String[] args) {
+
     CustomLinkedList linkedList = new CustomLinkedList();
-  
+
+    // Test reading integer from txt file
     try {
       linkedList.readFile("data.txt"); // Replace "data.txt" with your actual file name
     } catch (FileNotFoundException e) {
@@ -142,9 +144,9 @@ public class CustomLinkedList {
     CustomLinkedList secondLinkedList = new CustomLinkedList();
 
       // Insert some elements
-      linkedList.insert(1);
-      linkedList.insert(2);
-      linkedList.insert(3);
+      secondLinkedList.insert(1);
+      secondLinkedList.insert(2);
+      secondLinkedList.insert(3);
 
       // Iterate and display elements
       Iterator<Integer> secondIterator = secondLinkedList.iterator();
