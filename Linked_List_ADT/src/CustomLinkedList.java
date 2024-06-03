@@ -129,7 +129,7 @@ public class CustomLinkedList {
     // Test reading integer from txt file
     try {
       System.out.println("Reading integers from text file");
-      linkedList.readFile("data.txt"); // Replace "data.txt" with your actual file name
+      linkedList.readFile("C:\\Java Development\\Linked_List_ADT\\data.txt"); // Replace "data.txt" with your actual file name
     } catch (FileNotFoundException e) {
       System.out.println("Error: File not found!");
     }
